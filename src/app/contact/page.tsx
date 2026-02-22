@@ -1,0 +1,403 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import Navigation from '@/components/layout/Navigation'
+import Footer from '@/components/layout/Footer'
+import Button from '@/components/ui/Button'
+import { 
+  MapPin, Phone, Mail, Clock, Send, ArrowRight, 
+  Briefcase, User, Building2, Globe, Check, MessageCircle
+} from '@/components/ui/Icon'
+
+const offices = [
+  {
+    city: 'Ahmedabad',
+    country: 'India',
+    type: 'Headquarters',
+    address: 'D-13, Dhusali Society, Talavadi, Nr-Hansol Police Chowky, Airport Road, Ahmedabad – 382475, Gujarat',
+    phone: '+91-9601570167',
+    email: 'info@contacttohire.in',
+    timezone: 'IST',
+    hours: 'Mon-Sat: 9:00 AM - 7:00 PM',
+    flag: '🇮🇳',
+  },
+]
+
+const timeZones = [
+  { city: 'Ahmedabad', zone: 'IST', offset: '+5:30', flag: '🇮🇳' },
+  { city: 'Dubai', zone: 'GST', offset: '+4:00', flag: '🇦🇪' },
+  { city: 'London', zone: 'GMT', offset: '+0:00', flag: '🇬🇧' },
+  { city: 'Frankfurt', zone: 'CET', offset: '+1:00', flag: '🇩🇪' },
+  { city: 'Riyadh', zone: 'AST', offset: '+3:00', flag: '🇸🇦' },
+]
+
+const faqs = [
+  {
+    question: 'How long does the recruitment process typically take?',
+    answer: 'Our average time-to-fill is 21-45 days depending on the role complexity. Executive searches may take longer.',
+  },
+  {
+    question: 'Do you provide relocation support?',
+    answer: 'Yes, we offer comprehensive relocation assistance including visa guidance, documentation, and settling-in support.',
+  },
+  {
+    question: 'What industries do you specialize in?',
+    answer: 'We specialize in Technology, Finance, Healthcare, Manufacturing, and Energy sectors across EMEA.',
+  },
+  {
+    question: 'Is there a fee for candidates?',
+    answer: 'No, our services are completely free for job seekers. We are paid by the hiring companies.',
+  },
+]
+
+export default function ContactPage() {
+  const [formType, setFormType] = useState<'employer' | 'candidate'>('employer')
+  const [currentTime, setCurrentTime] = useState(new Date())
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: '',
+  })
+  const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const getTimeInZone = (offset: string) => {
+    const [hours, minutes] = offset.split(':').map(Number)
+    const sign = offset.startsWith('-') ? -1 : 1
+    const utc = currentTime.getTime() + currentTime.getTimezoneOffset() * 60000
+    const time = new Date(utc + sign * (hours * 3600000 + minutes * 60000))
+    return time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Simulate form submission
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 3000)
+  }
+
+  return (
+    <>
+      <Navigation />
+      
+      <main>
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 bg-gradient-to-b from-cream-dark to-cream">
+          <div className="container">
+            <div className="max-w-4xl mx-auto text-center">
+              <span className="badge mb-6">Get in Touch</span>
+              <h1 className="font-display text-fluid-hero font-bold text-brown mb-6 leading-tight">
+                Let's Build<br />
+                <span className="text-gradient">Something Great</span>
+              </h1>
+              <p className="text-fluid-xl text-gray-500 max-w-2xl mx-auto">
+                Whether you're seeking top talent or your next career opportunity, 
+                we're here to help you succeed.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Global Clock */}
+        <section className="py-8 bg-brown text-cream">
+          <div className="container">
+            <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
+              {timeZones.map((tz) => (
+                <div key={tz.city} className="text-center">
+                  <span className="text-xl mr-1">{tz.flag}</span>
+                  <span className="text-sm text-gray-300">{tz.city}</span>
+                  <div className="font-display text-lg font-bold text-sun">
+                    {getTimeInZone(tz.offset)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Main Content */}
+        <section className="section">
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Form Section */}
+              <div>
+                <h2 className="font-display text-fluid-3xl font-bold text-brown mb-6">
+                  Start the Conversation
+                </h2>
+
+                {/* Form Type Toggle */}
+                <div className="flex gap-4 mb-8">
+                  <button
+                    onClick={() => setFormType('employer')}
+                    className={`flex-1 py-4 px-6 rounded-xl font-medium transition-all ${
+                      formType === 'employer'
+                        ? 'bg-emerald text-cream shadow-medium'
+                        : 'bg-cream-dark text-brown hover:bg-gray-200'
+                    }`}
+                  >
+                    <Briefcase className="w-5 h-5 inline mr-2" />
+                    I'm Hiring
+                  </button>
+                  <button
+                    onClick={() => setFormType('candidate')}
+                    className={`flex-1 py-4 px-6 rounded-xl font-medium transition-all ${
+                      formType === 'candidate'
+                        ? 'bg-emerald text-cream shadow-medium'
+                        : 'bg-cream-dark text-brown hover:bg-gray-200'
+                    }`}
+                  >
+                    <User className="w-5 h-5 inline mr-2" />
+                    I'm Job Seeking
+                  </button>
+                </div>
+
+                {/* Form */}
+                {submitted ? (
+                  <div className="bg-emerald/10 rounded-2xl p-8 text-center">
+                    <div className="w-16 h-16 rounded-full bg-emerald text-cream flex items-center justify-center mx-auto mb-4">
+                      <Check className="w-8 h-8" />
+                    </div>
+                    <h3 className="font-display text-2xl font-bold text-brown mb-2">
+                      Message Sent!
+                    </h3>
+                    <p className="text-gray-500">
+                      We'll get back to you within 24 hours.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-brown mb-2">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-emerald focus:ring-2 focus:ring-emerald/20 outline-none transition-all"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-brown mb-2">
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-emerald focus:ring-2 focus:ring-emerald/20 outline-none transition-all"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-brown mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-emerald focus:ring-2 focus:ring-emerald/20 outline-none transition-all"
+                          placeholder="+91 98765 43210"
+                        />
+                      </div>
+                      {formType === 'employer' && (
+                        <div>
+                          <label className="block text-sm font-medium text-brown mb-2">
+                            Company Name *
+                          </label>
+                          <input
+                            type="text"
+                            required={formType === 'employer'}
+                            value={formData.company}
+                            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-emerald focus:ring-2 focus:ring-emerald/20 outline-none transition-all"
+                            placeholder="Company Inc."
+                          />
+                        </div>
+                      )}
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-brown mb-2">
+                        {formType === 'employer' ? 'Tell us about your hiring needs' : 'Tell us about your career goals'}
+                      </label>
+                      <textarea
+                        rows={4}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-emerald focus:ring-2 focus:ring-emerald/20 outline-none transition-all resize-none"
+                        placeholder={formType === 'employer' 
+                          ? 'What roles are you looking to fill? How many positions? Timeline?' 
+                          : 'What kind of role are you looking for? Preferred locations? Experience level?'
+                        }
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="lg"
+                      className="w-full"
+                      icon={<Send className="w-5 h-5" />}
+                    >
+                      Send Message
+                    </Button>
+                  </form>
+                )}
+              </div>
+
+              {/* Contact Info */}
+              <div>
+                <h2 className="font-display text-fluid-3xl font-bold text-brown mb-6">
+                  Contact Information
+                </h2>
+
+                {/* Office Card */}
+                {offices.map((office) => (
+                  <div key={office.city} className="bg-white rounded-2xl p-8 border border-gray-200 mb-8">
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="text-3xl">{office.flag}</span>
+                      <div>
+                        <h3 className="font-display text-xl font-bold text-brown">
+                          {office.city}
+                        </h3>
+                        <span className="text-emerald text-sm font-medium">{office.type}</span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-emerald flex-shrink-0 mt-1" />
+                        <span className="text-gray-500">{office.address}</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Phone className="w-5 h-5 text-emerald flex-shrink-0" />
+                        <a href={`tel:${office.phone}`} className="text-brown hover:text-emerald transition-colors">
+                          {office.phone}
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Mail className="w-5 h-5 text-emerald flex-shrink-0" />
+                        <a href={`mailto:${office.email}`} className="text-brown hover:text-emerald transition-colors">
+                          {office.email}
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Clock className="w-5 h-5 text-emerald flex-shrink-0" />
+                        <span className="text-gray-500">{office.hours}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Quick Contact */}
+                <div className="bg-brown rounded-2xl p-8 text-cream">
+                  <h3 className="font-display text-xl font-bold mb-4">
+                    Prefer a Quick Chat?
+                  </h3>
+                  <p className="text-gray-300 mb-6">
+                    Our team is available during business hours for immediate assistance.
+                  </p>
+                  <div className="space-y-3">
+                    <Button
+                      href="tel:+919601570167"
+                      variant="primary"
+                      className="w-full"
+                      icon={<Phone className="w-5 h-5" />}
+                    >
+                      Call Now
+                    </Button>
+                    <Button
+                      href="https://wa.me/919601570167"
+                      variant="secondary"
+                      className="w-full !bg-green-600 hover:!bg-green-700 !text-cream"
+                      icon={<MessageCircle className="w-5 h-5" />}
+                    >
+                      WhatsApp Us
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="section bg-cream-dark">
+          <div className="container">
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-12">
+                <span className="text-emerald text-sm uppercase tracking-widest font-medium">
+                  Common Questions
+                </span>
+                <h2 className="font-display text-fluid-4xl font-bold text-brown mt-4">
+                  Frequently Asked Questions
+                </h2>
+              </div>
+
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <details
+                    key={index}
+                    className="group bg-white rounded-xl border border-gray-200 overflow-hidden"
+                  >
+                    <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                      <span className="font-medium text-brown pr-4">{faq.question}</span>
+                      <ArrowRight className="w-5 h-5 text-emerald transition-transform group-open:rotate-90" />
+                    </summary>
+                    <div className="px-6 pb-6 text-gray-500">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Map Section */}
+        <section className="section">
+          <div className="container">
+            <div className="aspect-[2/1] bg-cream-dark rounded-3xl overflow-hidden relative">
+              {/* Placeholder for actual map */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <Globe className="w-16 h-16 text-emerald mx-auto mb-4" />
+                  <h3 className="font-display text-2xl font-bold text-brown mb-2">
+                    Visit Our Office
+                  </h3>
+                  <p className="text-gray-500 mb-4">
+                    Ahmedabad, Gujarat, India
+                  </p>
+                  <Button
+                    href="https://maps.google.com/?q=Ahmedabad,Gujarat,India"
+                    variant="secondary"
+                    icon={<MapPin className="w-5 h-5" />}
+                  >
+                    Get Directions
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <Footer />
+    </>
+  )
+}
