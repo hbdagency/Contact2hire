@@ -132,12 +132,12 @@ function GlobeWithTexture() {
           {hoveredCity === city.name && (
             <Html distanceFactor={10} style={{ pointerEvents: 'none' }}>
               <div className="bg-cream/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
-                <div className="font-bold text-brown text-sm">{city.name}</div>
+                <div className="font-bold text-charcoal text-sm">{city.name}</div>
                 {city.type === 'destination' && (
-                  <div className="text-emerald text-xs">{city.placements}+ placements</div>
+                  <div className="text-sky text-xs">{city.placements}+ placements</div>
                 )}
                 {city.type === 'source' && (
-                  <div className="text-sun text-xs">Source Hub</div>
+                  <div className="text-coral text-xs">Source Hub</div>
                 )}
               </div>
             </Html>
@@ -334,19 +334,19 @@ function Scene() {
 function Legend() {
   return (
     <div className="absolute bottom-4 left-4 bg-cream/90 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-      <h4 className="font-display text-sm font-bold text-brown mb-3">Talent Flow</h4>
+      <h4 className="font-display text-sm font-bold text-charcoal mb-3">Talent Flow</h4>
       <div className="space-y-2 text-xs">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-sun" />
-          <span className="text-brown">Source Hub (India)</span>
+          <div className="w-3 h-3 rounded-full bg-coral" />
+          <span className="text-charcoal">Source Hub (India)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-emerald" />
-          <span className="text-brown">EMEA Destinations</span>
+          <div className="w-3 h-3 rounded-full bg-sky" />
+          <span className="text-charcoal">EMEA Destinations</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-0.5 bg-sun/60" />
-          <span className="text-brown">Talent Pipeline</span>
+          <div className="w-8 h-0.5 bg-coral/60" />
+          <span className="text-charcoal">Talent Pipeline</span>
         </div>
       </div>
     </div>
@@ -371,7 +371,7 @@ function StatsOverlay() {
         >
           <span className="text-lg">{stat.flag}</span>
           <div>
-            <div className="font-display text-sm font-bold text-brown">{stat.value}</div>
+            <div className="font-display text-sm font-bold text-charcoal">{stat.value}</div>
             <div className="text-xs text-gray-500">{stat.label}</div>
           </div>
         </div>
@@ -397,7 +397,7 @@ export default function TalentFlowGlobe() {
       
       {/* Title overlay */}
       <div className="absolute top-4 left-4">
-        <h3 className="font-display text-xl font-bold text-brown">
+        <h3 className="font-display text-xl font-bold text-charcoal">
           India to EMEA
         </h3>
         <p className="text-sm text-gray-500">Talent Flow Visualization</p>

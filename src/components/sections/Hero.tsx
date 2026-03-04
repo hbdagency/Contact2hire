@@ -36,8 +36,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-cream via-cream to-cream-dark" />
       
       {/* Decorative elements */}
-      <div className="absolute top-1/4 left-10 w-64 h-64 bg-sun/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-emerald/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-10 w-64 h-64 bg-coral/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-sky/10 rounded-full blur-3xl" />
       
       {/* Hero image - professional handshake/business */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-3/4 opacity-10 hidden lg:block">
@@ -51,9 +51,9 @@ export default function Hero() {
       </div>
       
       {/* Floating decorative shapes */}
-      <div className="absolute top-32 right-1/4 w-4 h-4 bg-sun rounded-full animate-float" />
-      <div className="absolute bottom-40 left-1/4 w-6 h-6 bg-terracotta/50 rounded-full animate-float delay-300" />
-      <div className="absolute top-1/2 right-20 w-3 h-3 bg-emerald rounded-full animate-float delay-500" />
+      <div className="absolute top-32 right-1/4 w-4 h-4 bg-coral rounded-full animate-float" />
+      <div className="absolute bottom-40 left-1/4 w-6 h-6 bg-coral-dark/50 rounded-full animate-float delay-300" />
+      <div className="absolute top-1/2 right-20 w-3 h-3 bg-sky rounded-full animate-float delay-500" />
 
       <div className="container relative z-10">
         <div className="max-w-5xl mx-auto text-center">
@@ -63,7 +63,7 @@ export default function Hero() {
           </div>
 
           {/* Main heading */}
-          <h1 className="animate-on-load font-display text-fluid-hero font-bold text-brown leading-[0.9] mb-6">
+          <h1 className="animate-on-load font-display text-fluid-hero font-bold text-charcoal leading-[0.9] mb-6">
             <span className="block">Connecting</span>
             <span className="block text-gradient">Talents</span>
           </h1>

@@ -32,7 +32,7 @@ export default function Metrics() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="section bg-brown text-cream relative overflow-hidden">
+    <section ref={sectionRef} className="section bg-charcoal text-cream relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -44,7 +44,7 @@ export default function Metrics() {
       <div className="container relative z-10">
         {/* Section header */}
         <div className="text-center mb-16">
-          <span className="text-sun text-sm uppercase tracking-widest font-medium">
+          <span className="text-coral text-sm uppercase tracking-widest font-medium">
             Our Impact
           </span>
           <h2 className="font-display text-fluid-4xl font-bold mt-4">
@@ -77,7 +77,7 @@ export default function Metrics() {
 
         {/* Bottom decorative line */}
         <div className="mt-16 flex justify-center">
-          <div className="w-24 h-1 bg-gradient-to-r from-sun via-terracotta to-sun rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-coral via-coral-dark to-coral rounded-full" />
         </div>
       </div>
     </section>

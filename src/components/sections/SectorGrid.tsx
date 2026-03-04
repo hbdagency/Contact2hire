@@ -77,10 +77,10 @@ export default function SectorGrid() {
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <span className="text-emerald text-sm uppercase tracking-widest font-medium">
+            <span className="text-sky text-sm uppercase tracking-widest font-medium">
               Industries We Serve
             </span>
-            <h2 className="font-display text-fluid-4xl font-bold text-brown mt-4">
+            <h2 className="font-display text-fluid-4xl font-bold text-charcoal mt-4">
               Featured Sectors
             </h2>
           </div>
@@ -123,13 +123,13 @@ export default function SectorGrid() {
                   />
                   {/* Gradient overlay for better text readability */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${sector.accentColor}`} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brown/90 via-brown/60 to-brown/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/60 to-charcoal/30" />
                 </div>
                 
                 {/* Hover gradient overlay */}
                 <div
                   className={`
-                    absolute inset-0 bg-gradient-to-t from-brown/95 via-brown/80 to-brown/50
+                    absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/80 to-charcoal/50
                     transition-opacity duration-500
                     ${isHovered ? 'opacity-100' : 'opacity-0'}
                   `}
@@ -147,8 +147,8 @@ export default function SectorGrid() {
                     ${isHovered ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}
                   `}>
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-xl bg-sun/90 flex items-center justify-center shadow-medium">
-                        <IconComponent className="w-6 h-6 text-brown" />
+                      <div className="w-12 h-12 rounded-xl bg-coral/90 flex items-center justify-center shadow-medium">
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
                       <div className="h-8 w-px bg-cream/30" />
                       <span className="text-xs uppercase tracking-widest text-cream/80 font-medium">
@@ -162,9 +162,9 @@ export default function SectorGrid() {
                       {sector.description}
                     </p>
                     <div className="flex items-center gap-4 mt-4">
-                      <div className="bg-sun/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                        <span className="text-brown font-bold text-sm">{sector.stats.placements}+</span>
-                        <span className="text-brown/70 text-xs ml-1">placements</span>
+                      <div className="bg-coral/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                        <span className="text-white font-bold text-sm">{sector.stats.placements}+</span>
+                        <span className="text-white/70 text-xs ml-1">placements</span>
                       </div>
                       <div className="bg-cream/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-cream/30">
                         <span className="text-cream font-bold text-sm">{sector.stats.clients}+</span>
@@ -180,11 +180,11 @@ export default function SectorGrid() {
                     ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                   `}>
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-xl bg-sun/20 backdrop-blur-sm flex items-center justify-center border border-sun/30">
-                        <IconComponent className="w-6 h-6 text-sun" />
+                      <div className="w-12 h-12 rounded-xl bg-coral/20 backdrop-blur-sm flex items-center justify-center border border-coral/30">
+                        <IconComponent className="w-6 h-6 text-coral" />
                       </div>
                     </div>
-                    <span className="text-xs uppercase tracking-widest text-sun font-medium mb-2">
+                    <span className="text-xs uppercase tracking-widest text-coral font-medium mb-2">
                       {sector.subtitle}
                     </span>
                     <h3 className="font-display text-fluid-2xl font-bold text-cream mb-3">
@@ -207,12 +207,12 @@ export default function SectorGrid() {
 
                   {/* Arrow icon */}
                   <div className={`
-                    absolute bottom-6 right-6 w-10 h-10 rounded-full bg-sun
+                    absolute bottom-6 right-6 w-10 h-10 rounded-full bg-coral
                     flex items-center justify-center shadow-large
                     transition-all duration-500
                     ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}
                   `}>
-                    <ArrowRight className="w-5 h-5 text-brown" />
+                    <ArrowRight className="w-5 h-5 text-white" />
                   </div>
                 </div>
               </Link>

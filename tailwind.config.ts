@@ -11,34 +11,53 @@ const config: Config = {
       colors: {
         // Base Colors
         cream: {
-          DEFAULT: '#FDF8F0',
-          dark: '#F5EDE0',
+          DEFAULT: '#F8F5F0',
+          dark: '#F0EBE3',
         },
-        // Primary
+        // Primary - Charcoal (Dark)
+        charcoal: {
+          DEFAULT: '#1A1A1A',
+          light: '#3D3D3D',
+        },
+        // Legacy alias for backward compatibility
         brown: {
-          DEFAULT: '#3C2415',
-          light: '#5A3D2B',
+          DEFAULT: '#1A1A1A',
+          light: '#3D3D3D',
         },
-        // Accent Colors - EMEA Corporate
+        // Primary Accent - Coral
+        coral: {
+          DEFAULT: '#FF6B35',
+          dark: '#E85A2E',
+        },
+        // Legacy aliases for backward compatibility
+        sun: '#FF6B35',
+        terracotta: '#E85A2E',
+        // Secondary Accents - Sky Blue & Mint
+        sky: {
+          DEFAULT: '#A8D0E6',
+          dark: '#87CEEB',
+        },
+        mint: {
+          DEFAULT: '#C8E6C9',
+          dark: '#98D8C8',
+        },
+        sand: '#E8DCC4',
+        // Legacy aliases for backward compatibility
         emerald: {
-          DEFAULT: '#0F5132',
-          light: '#1A7A4C',
+          DEFAULT: '#A8D0E6',
+          light: '#87CEEB',
         },
         royal: {
-          DEFAULT: '#1E3A8A',
-          light: '#3B5998',
+          DEFAULT: '#C8E6C9',
+          light: '#98D8C8',
         },
-        // Secondary Accents
-        sun: '#F4B942',
-        terracotta: '#C75B39',
-        orange: '#E07B39',
         // Neutrals
         gray: {
-          100: '#F8F6F3',
-          200: '#E8E4DE',
-          300: '#D1CBC2',
-          400: '#A69F94',
-          500: '#736E66',
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',
+          400: '#A3A3A3',
+          500: '#6B6B6B',
         },
       },
       fontFamily: {
@@ -73,9 +92,9 @@ const config: Config = {
         '5xl': '2.5rem',
       },
       boxShadow: {
-        'soft': '0 4px 6px rgba(60, 36, 21, 0.07)',
-        'medium': '0 10px 15px rgba(60, 36, 21, 0.1)',
-        'large': '0 20px 25px rgba(60, 36, 21, 0.12)',
+        'soft': '0 4px 6px rgba(26, 26, 26, 0.07)',
+        'medium': '0 10px 15px rgba(26, 26, 26, 0.1)',
+        'large': '0 20px 25px rgba(26, 26, 26, 0.12)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',

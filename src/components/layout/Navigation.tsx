@@ -56,13 +56,13 @@ export default function Navigation() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`relative text-sm font-medium tracking-wide uppercase transition-colors hover:text-emerald ${
-                    pathname === link.href ? 'text-emerald' : 'text-brown'
+                  className={`relative text-sm font-medium tracking-wide uppercase transition-colors hover:text-coral ${
+                    pathname === link.href ? 'text-coral' : 'text-charcoal'
                   }`}
                 >
                   {link.label}
                   {pathname === link.href && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald rounded-full" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-coral rounded-full" />
                   )}
                 </Link>
               </li>
@@ -74,7 +74,7 @@ export default function Navigation() {
             {/* Phone - Icon only, expands on hover */}
             <a
               href="tel:+919601570167"
-              className="group flex items-center gap-0 bg-brown/10 hover:bg-brown text-brown hover:text-cream px-2 hover:px-4 py-2 rounded-full transition-all duration-300 overflow-hidden"
+              className="group flex items-center gap-0 bg-charcoal/10 hover:bg-charcoal text-charcoal hover:text-cream px-2 hover:px-4 py-2 rounded-full transition-all duration-300 overflow-hidden"
               title="Call us"
             >
               <Phone className="w-5 h-5 flex-shrink-0" />
@@ -100,7 +100,7 @@ export default function Navigation() {
             {/* CTA Button - Icon only */}
             <Link
               href="/contact"
-              className="flex items-center justify-center w-10 h-10 bg-sun text-brown rounded-full hover:bg-emerald hover:text-cream transition-colors"
+              className="flex items-center justify-center w-10 h-10 bg-coral text-white rounded-full hover:bg-coral-dark transition-colors"
               title="Get Started"
             >
               <ArrowRight className="w-5 h-5" />
@@ -111,7 +111,7 @@ export default function Navigation() {
           <div className="flex lg:hidden items-center gap-3 mr-4">
             <a
               href="tel:+919601570167"
-              className="w-10 h-10 rounded-full bg-brown/10 flex items-center justify-center text-brown hover:bg-emerald hover:text-cream transition-colors"
+              className="w-10 h-10 rounded-full bg-charcoal/10 flex items-center justify-center text-charcoal hover:bg-coral hover:text-white transition-colors"
               title="Call us"
             >
               <Phone className="w-5 h-5" />
@@ -134,17 +134,17 @@ export default function Navigation() {
             aria-label="Toggle menu"
           >
             <span
-              className={`w-6 h-0.5 bg-brown transition-all duration-300 ${
+              className={`w-6 h-0.5 bg-charcoal transition-all duration-300 ${
                 isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
               }`}
             />
             <span
-              className={`w-6 h-0.5 bg-brown transition-all duration-300 ${
+              className={`w-6 h-0.5 bg-charcoal transition-all duration-300 ${
                 isMobileMenuOpen ? 'opacity-0' : ''
               }`}
             />
             <span
-              className={`w-6 h-0.5 bg-brown transition-all duration-300 ${
+              className={`w-6 h-0.5 bg-charcoal transition-all duration-300 ${
                 isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
               }`}
             />
@@ -174,8 +174,8 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`font-display text-3xl font-bold transition-colors hover:text-emerald ${
-                    pathname === link.href ? 'text-emerald' : 'text-brown'
+                  className={`font-display text-3xl font-bold transition-colors hover:text-coral ${
+                    pathname === link.href ? 'text-coral' : 'text-charcoal'
                   }`}
                 >
                   {link.label}
@@ -201,7 +201,7 @@ export default function Navigation() {
             <div className="flex items-center gap-4 mt-4">
               <a
                 href="tel:+919601570167"
-                className="flex items-center gap-2 text-brown"
+                className="flex items-center gap-2 text-charcoal"
               >
                 <Phone className="w-5 h-5" />
                 <span>Call</span>

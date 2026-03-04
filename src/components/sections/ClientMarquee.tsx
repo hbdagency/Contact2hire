@@ -51,7 +51,7 @@ export default function ClientMarquee() {
               className="flex-shrink-0 w-32 h-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
             >
               {/* Placeholder logo - replace with actual Image component */}
-              <div className="text-brown font-display text-lg font-bold whitespace-nowrap">
+              <div className="text-charcoal font-display text-lg font-bold whitespace-nowrap">
                 {client.name}
               </div>
             </div>
