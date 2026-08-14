@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Phone, MessageCircle, ArrowRight } from '@/components/ui/Icon'
+import { Phone, ArrowRight } from '@/components/ui/Icon'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -38,15 +38,15 @@ export default function Navigation() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-cream/90 backdrop-blur-md shadow-soft py-4'
-            : 'bg-transparent py-6'
+            ? 'bg-white/90 backdrop-blur-md shadow-soft py-3'
+            : 'bg-transparent py-5'
         }`}
       >
         <nav className="container flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-50 group">
-            <span className="font-display text-2xl font-bold text-brown group-hover:text-emerald transition-colors">
-              Contact<span className="text-emerald">2</span>Hire
+            <span className="font-display text-2xl font-extrabold text-gray-900 group-hover:text-brand-violet transition-colors">
+              Contact<span className="text-brand-lime bg-gray-900 px-1 rounded">2</span>Hire
             </span>
           </Link>
 
@@ -56,13 +56,13 @@ export default function Navigation() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`relative text-sm font-medium tracking-wide uppercase transition-colors hover:text-coral ${
-                    pathname === link.href ? 'text-coral' : 'text-charcoal'
+                  className={`relative text-sm font-semibold tracking-wide uppercase transition-colors hover:text-brand-violet ${
+                    pathname === link.href ? 'text-brand-violet' : 'text-gray-700'
                   }`}
                 >
                   {link.label}
                   {pathname === link.href && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-coral rounded-full" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-violet rounded-full" />
                   )}
                 </Link>
               </li>
@@ -71,39 +71,22 @@ export default function Navigation() {
 
           {/* Contact Icons & CTA - Desktop */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Phone - Icon only, expands on hover */}
+            {/* Phone - Icon only */}
             <a
               href="tel:+919601570167"
-              className="group flex items-center gap-0 bg-charcoal/10 hover:bg-charcoal text-charcoal hover:text-cream px-2 hover:px-4 py-2 rounded-full transition-all duration-300 overflow-hidden"
+              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-brand-violet hover:text-white transition-colors"
               title="Call us"
             >
-              <Phone className="w-5 h-5 flex-shrink-0" />
-              <span className="max-w-0 group-hover:max-w-[100px] overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300">
-                +91-9601570167
-              </span>
+              <Phone className="w-5 h-5" />
             </a>
             
-            {/* WhatsApp - Icon only, expands on hover */}
-            <a
-              href="https://wa.me/919601570167"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-0 bg-green-600 hover:bg-green-700 text-cream px-2 hover:px-4 py-2 rounded-full transition-all duration-300 overflow-hidden"
-              title="WhatsApp us"
-            >
-              <MessageCircle className="w-5 h-5 flex-shrink-0" />
-              <span className="max-w-0 group-hover:max-w-[80px] overflow-hidden whitespace-nowrap text-sm font-medium transition-all duration-300">
-                WhatsApp
-              </span>
-            </a>
-            
-            {/* CTA Button - Icon only */}
+            {/* CTA Button */}
             <Link
               href="/contact"
-              className="flex items-center justify-center w-10 h-10 bg-coral text-white rounded-full hover:bg-coral-dark transition-colors"
-              title="Get Started"
+              className="flex items-center gap-2 px-5 py-2.5 bg-brand-violet text-white rounded-full hover:bg-brand-violet-dark transition-colors font-semibold text-sm"
             >
-              <ArrowRight className="w-5 h-5" />
+              Hire Talent
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -111,19 +94,10 @@ export default function Navigation() {
           <div className="flex lg:hidden items-center gap-3 mr-4">
             <a
               href="tel:+919601570167"
-              className="w-10 h-10 rounded-full bg-charcoal/10 flex items-center justify-center text-charcoal hover:bg-coral hover:text-white transition-colors"
+              className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-brand-violet hover:text-white transition-colors"
               title="Call us"
             >
               <Phone className="w-5 h-5" />
-            </a>
-            <a
-              href="https://wa.me/919601570167"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-cream hover:bg-green-700 transition-colors"
-              title="WhatsApp us"
-            >
-              <MessageCircle className="w-5 h-5" />
             </a>
           </div>
 
@@ -134,17 +108,17 @@ export default function Navigation() {
             aria-label="Toggle menu"
           >
             <span
-              className={`w-6 h-0.5 bg-charcoal transition-all duration-300 ${
+              className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${
                 isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
               }`}
             />
             <span
-              className={`w-6 h-0.5 bg-charcoal transition-all duration-300 ${
+              className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${
                 isMobileMenuOpen ? 'opacity-0' : ''
               }`}
             />
             <span
-              className={`w-6 h-0.5 bg-charcoal transition-all duration-300 ${
+              className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${
                 isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
               }`}
             />
@@ -154,7 +128,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-cream lg:hidden transition-all duration-500 ${
+        className={`fixed inset-0 z-40 bg-white lg:hidden transition-all duration-500 ${
           isMobileMenuOpen
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
@@ -174,8 +148,8 @@ export default function Navigation() {
               >
                 <Link
                   href={link.href}
-                  className={`font-display text-3xl font-bold transition-colors hover:text-coral ${
-                    pathname === link.href ? 'text-coral' : 'text-charcoal'
+                  className={`font-display text-3xl font-extrabold transition-colors hover:text-brand-violet ${
+                    pathname === link.href ? 'text-brand-violet' : 'text-gray-900'
                   }`}
                 >
                   {link.label}
@@ -196,24 +170,15 @@ export default function Navigation() {
               className="btn-primary flex items-center gap-2"
             >
               <ArrowRight className="w-5 h-5" />
-              <span>Get Started</span>
+              <span>Hire Talent</span>
             </Link>
             <div className="flex items-center gap-4 mt-4">
               <a
                 href="tel:+919601570167"
-                className="flex items-center gap-2 text-charcoal"
+                className="flex items-center gap-2 text-gray-700"
               >
                 <Phone className="w-5 h-5" />
                 <span>Call</span>
-              </a>
-              <a
-                href="https://wa.me/919601570167"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-600 text-cream px-4 py-2 rounded-full"
-              >
-                <MessageCircle className="w-5 h-5" />
-                <span>WhatsApp</span>
               </a>
             </div>
           </div>

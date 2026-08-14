@@ -114,7 +114,7 @@ function GlobeWithTexture() {
           >
             <sphereGeometry args={[city.type === 'source' ? 0.08 : 0.05, 16, 16]} />
             <meshBasicMaterial 
-              color={city.type === 'source' ? '#F4B942' : '#0F5132'} 
+              color={city.type === 'source' ? '#D2FF00' : '#6332F6'} 
             />
           </mesh>
           
@@ -122,7 +122,7 @@ function GlobeWithTexture() {
           <mesh>
             <sphereGeometry args={[city.type === 'source' ? 0.12 : 0.08, 16, 16]} />
             <meshBasicMaterial 
-              color={city.type === 'source' ? '#F4B942' : '#0F5132'}
+              color={city.type === 'source' ? '#D2FF00' : '#6332F6'}
               transparent
               opacity={0.4}
             />
@@ -131,13 +131,13 @@ function GlobeWithTexture() {
           {/* Label on hover */}
           {hoveredCity === city.name && (
             <Html distanceFactor={10} style={{ pointerEvents: 'none' }}>
-              <div className="bg-cream/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
-                <div className="font-bold text-charcoal text-sm">{city.name}</div>
+              <div className="bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border border-gray-200 whitespace-nowrap">
+                <div className="font-bold text-gray-900 text-sm">{city.name}</div>
                 {city.type === 'destination' && (
-                  <div className="text-sky text-xs">{city.placements}+ placements</div>
+                  <div className="text-brand-violet text-xs">{city.placements}+ placements</div>
                 )}
                 {city.type === 'source' && (
-                  <div className="text-coral text-xs">Source Hub</div>
+                  <div className="text-brand-lime text-xs">Source Hub</div>
                 )}
               </div>
             </Html>
@@ -150,7 +150,7 @@ function GlobeWithTexture() {
         <Line
           key={index}
           points={conn.points}
-          color="#F4B942"
+          color="#D2FF00"
           lineWidth={2}
           transparent
           opacity={0.8}
@@ -228,13 +228,13 @@ function GlobeFallback() {
           <mesh>
             <sphereGeometry args={[city.type === 'source' ? 0.08 : 0.05, 16, 16]} />
             <meshBasicMaterial 
-              color={city.type === 'source' ? '#F4B942' : '#0F5132'} 
+              color={city.type === 'source' ? '#D2FF00' : '#6332F6'} 
             />
           </mesh>
           <mesh>
             <sphereGeometry args={[city.type === 'source' ? 0.12 : 0.08, 16, 16]} />
             <meshBasicMaterial 
-              color={city.type === 'source' ? '#F4B942' : '#0F5132'}
+              color={city.type === 'source' ? '#D2FF00' : '#6332F6'}
               transparent
               opacity={0.4}
             />
@@ -247,7 +247,7 @@ function GlobeFallback() {
         <Line
           key={index}
           points={conn.points}
-          color="#F4B942"
+          color="#D2FF00"
           lineWidth={2}
           transparent
           opacity={0.8}
@@ -293,7 +293,7 @@ function Particles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.02}
-        color="#F4B942"
+        color="#D2FF00"
         transparent
         opacity={0.6}
         sizeAttenuation
@@ -308,7 +308,7 @@ function Scene() {
     <>
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={1.5} />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#F4B942" />
+      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#D2FF00" />
       
       <Float speed={0.5} rotationIntensity={0.1} floatIntensity={0.2}>
         <Suspense fallback={<GlobeFallback />}>
@@ -333,20 +333,20 @@ function Scene() {
 // Legend component
 function Legend() {
   return (
-    <div className="absolute bottom-4 left-4 bg-cream/90 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-      <h4 className="font-display text-sm font-bold text-charcoal mb-3">Talent Flow</h4>
+    <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
+      <h4 className="font-display text-sm font-bold text-gray-900 mb-3">Talent Flow</h4>
       <div className="space-y-2 text-xs">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-coral" />
-          <span className="text-charcoal">Source Hub (India)</span>
+          <div className="w-3 h-3 rounded-full bg-brand-lime" />
+          <span className="text-gray-900">Source Hub (India)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-sky" />
-          <span className="text-charcoal">EMEA Destinations</span>
+          <div className="w-3 h-3 rounded-full bg-brand-violet" />
+          <span className="text-gray-900">EMEA Destinations</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-0.5 bg-coral/60" />
-          <span className="text-charcoal">Talent Pipeline</span>
+          <div className="w-8 h-0.5 bg-brand-lime/60" />
+          <span className="text-gray-900">Talent Pipeline</span>
         </div>
       </div>
     </div>
@@ -367,11 +367,11 @@ function StatsOverlay() {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="bg-cream/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-gray-200 flex items-center gap-2"
+          className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 border border-gray-200 flex items-center gap-2"
         >
           <span className="text-lg">{stat.flag}</span>
           <div>
-            <div className="font-display text-sm font-bold text-charcoal">{stat.value}</div>
+            <div className="font-display text-sm font-bold text-gray-900">{stat.value}</div>
             <div className="text-xs text-gray-500">{stat.label}</div>
           </div>
         </div>
@@ -397,10 +397,10 @@ export default function TalentFlowGlobe() {
       
       {/* Title overlay */}
       <div className="absolute top-4 left-4">
-        <h3 className="font-display text-xl font-bold text-charcoal">
+        <h3 className="font-display text-xl font-bold text-white">
           India to EMEA
         </h3>
-        <p className="text-sm text-gray-500">Talent Flow Visualization</p>
+        <p className="text-sm text-gray-400">Talent Flow Visualization</p>
       </div>
     </div>
   )

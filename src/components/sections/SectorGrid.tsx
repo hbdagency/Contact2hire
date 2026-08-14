@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowRight, Code, Landmark, Stethoscope, Factory, Cpu } from '@/components/ui/Icon'
 
 const sectors = [
@@ -11,60 +10,55 @@ const sectors = [
     title: 'Technology',
     subtitle: 'IT & Software',
     description: 'Software engineers, data scientists, and tech leaders for EMEA innovation hubs.',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
     roles: ['Software Engineers', 'Data Scientists', 'Product Managers', 'DevOps Engineers'],
     stats: { placements: 450, clients: 85 },
     size: 'large',
     icon: Code,
-    accentColor: 'from-blue-500/30 to-purple-500/30',
+    featured: true,
   },
   {
     id: 'finance',
     title: 'Finance',
     subtitle: 'Banking & Fintech',
     description: 'Financial experts for London, Dubai, and European financial centers.',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
     roles: ['Financial Analysts', 'Risk Managers', 'CFOs', 'Investment Bankers'],
     stats: { placements: 280, clients: 52 },
     size: 'small',
     icon: Landmark,
-    accentColor: 'from-emerald-500/30 to-teal-500/30',
+    featured: false,
   },
   {
     id: 'healthcare',
     title: 'Healthcare',
     subtitle: 'Medical & Pharma',
     description: 'Medical professionals and healthcare administrators.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     roles: ['Doctors', 'Nurses', 'Healthcare Admin', 'Pharma Execs'],
     stats: { placements: 220, clients: 38 },
     size: 'small',
     icon: Stethoscope,
-    accentColor: 'from-rose-500/30 to-pink-500/30',
+    featured: false,
   },
   {
     id: 'manufacturing',
     title: 'Manufacturing',
     subtitle: 'Industrial & Operations',
     description: 'Operations leaders for industrial sectors across EMEA.',
-    image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=800&q=80',
     roles: ['Plant Managers', 'Supply Chain', 'Quality Heads', 'COOs'],
     stats: { placements: 180, clients: 42 },
     size: 'medium',
     icon: Factory,
-    accentColor: 'from-amber-500/30 to-orange-500/30',
+    featured: false,
   },
   {
     id: 'energy',
     title: 'Energy & Oil',
     subtitle: 'Oil, Gas & Renewables',
     description: 'Energy sector specialists for Middle East and European markets.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
     roles: ['Petroleum Engineers', 'Project Managers', 'HSE Officers', 'Energy Analysts'],
     stats: { placements: 370, clients: 83 },
     size: 'wide',
     icon: Cpu,
-    accentColor: 'from-yellow-500/30 to-amber-500/30',
+    featured: false,
   },
 ]
 
@@ -77,10 +71,10 @@ export default function SectorGrid() {
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>
-            <span className="text-sky text-sm uppercase tracking-widest font-medium">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full">
               Industries We Serve
             </span>
-            <h2 className="font-display text-fluid-4xl font-bold text-charcoal mt-4">
+            <h2 className="font-display text-fluid-4xl font-extrabold text-gray-900 mt-4">
               Featured Sectors
             </h2>
           </div>
@@ -104,115 +98,94 @@ export default function SectorGrid() {
                 key={sector.id}
                 href={`/services#${sector.id}`}
                 className={`
-                  group relative overflow-hidden rounded-2xl
+                  group relative overflow-hidden rounded-[20px]
                   transition-all duration-500 hover:shadow-large hover:-translate-y-1
                   ${sector.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''}
                   ${sector.size === 'wide' ? 'md:col-span-2' : ''}
                   ${sector.size === 'medium' ? 'md:col-span-1 md:row-span-2' : ''}
+                  ${sector.featured ? 'bg-brand-violet' : 'bg-surface-dark-card'}
                 `}
                 onMouseEnter={() => setHoveredSector(sector.id)}
                 onMouseLeave={() => setHoveredSector(null)}
               >
-                {/* Background image - always visible */}
-                <div className="absolute inset-0">
-                  <Image
-                    src={sector.image}
-                    alt={sector.title}
-                    fill
-                    className={`object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
-                  />
-                  {/* Gradient overlay for better text readability */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${sector.accentColor}`} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/60 to-charcoal/30" />
-                </div>
-                
-                {/* Hover gradient overlay */}
-                <div
-                  className={`
-                    absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/80 to-charcoal/50
-                    transition-opacity duration-500
-                    ${isHovered ? 'opacity-100' : 'opacity-0'}
-                  `}
-                />
-
                 {/* Content */}
                 <div className={`
                   relative z-10 p-6 lg:p-8 flex flex-col
                   ${sector.size === 'large' ? 'min-h-[400px] lg:min-h-[500px]' : 'min-h-[200px]'}
                   ${sector.size === 'medium' ? 'min-h-[300px]' : ''}
                 `}>
-                  {/* Default state - always visible */}
-                  <div className={`
-                    transition-all duration-500
-                    ${isHovered ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}
-                  `}>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-xl bg-coral/90 flex items-center justify-center shadow-medium">
-                        <IconComponent className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="h-8 w-px bg-cream/30" />
-                      <span className="text-xs uppercase tracking-widest text-cream/80 font-medium">
-                        {sector.subtitle}
-                      </span>
+                  {/* Top row - icon + arrow */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                      sector.featured 
+                        ? 'bg-white/20 backdrop-blur-sm border border-white/30' 
+                        : 'bg-brand-lime/10 border border-brand-lime/20'
+                    }`}>
+                      <IconComponent className={`w-6 h-6 ${sector.featured ? 'text-white' : 'text-brand-lime'}`} />
                     </div>
-                    <h3 className="font-display text-fluid-2xl font-bold text-cream mt-4 drop-shadow-lg">
-                      {sector.title}
-                    </h3>
-                    <p className="text-cream/80 text-sm mt-2 line-clamp-2 max-w-xs">
-                      {sector.description}
-                    </p>
-                    <div className="flex items-center gap-4 mt-4">
-                      <div className="bg-coral/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                        <span className="text-white font-bold text-sm">{sector.stats.placements}+</span>
-                        <span className="text-white/70 text-xs ml-1">placements</span>
-                      </div>
-                      <div className="bg-cream/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-cream/30">
-                        <span className="text-cream font-bold text-sm">{sector.stats.clients}+</span>
-                        <span className="text-cream/70 text-xs ml-1">clients</span>
-                      </div>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isHovered 
+                        ? 'bg-brand-lime text-gray-900 rotate-45' 
+                        : sector.featured 
+                          ? 'bg-white/20 text-white' 
+                          : 'bg-white/10 text-white'
+                    }`}>
+                      <ArrowRight className="w-5 h-5" />
                     </div>
                   </div>
 
-                  {/* Hover state */}
-                  <div className={`
-                    absolute inset-0 p-6 lg:p-8 flex flex-col justify-end
-                    transition-all duration-500
-                    ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-                  `}>
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-xl bg-coral/20 backdrop-blur-sm flex items-center justify-center border border-coral/30">
-                        <IconComponent className="w-6 h-6 text-coral" />
-                      </div>
-                    </div>
-                    <span className="text-xs uppercase tracking-widest text-coral font-medium mb-2">
+                  {/* Content */}
+                  <div className="mt-auto">
+                    <span className={`text-xs uppercase tracking-widest font-bold ${
+                      sector.featured ? 'text-white/70' : 'text-brand-lime'
+                    }`}>
                       {sector.subtitle}
                     </span>
-                    <h3 className="font-display text-fluid-2xl font-bold text-cream mb-3">
+                    <h3 className={`font-display text-fluid-2xl font-extrabold mt-2 mb-3 ${
+                      sector.featured ? 'text-white' : 'text-white'
+                    }`}>
                       {sector.title}
                     </h3>
-                    <p className="text-cream/80 text-sm mb-4 line-clamp-2">
+                    <p className={`text-sm leading-relaxed mb-4 ${
+                      sector.featured ? 'text-white/80' : 'text-gray-400'
+                    }`}>
                       {sector.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
+
+                    {/* Stats */}
+                    <div className="flex items-center gap-3">
+                      <div className={`px-3 py-1.5 rounded-full ${
+                        sector.featured ? 'bg-brand-lime text-gray-900' : 'bg-brand-lime/10 text-brand-lime'
+                      }`}>
+                        <span className="font-bold text-sm">{sector.stats.placements}+</span>
+                        <span className="text-xs ml-1 opacity-70">placements</span>
+                      </div>
+                      <div className={`px-3 py-1.5 rounded-full border ${
+                        sector.featured ? 'border-white/30 text-white' : 'border-white/20 text-white'
+                      }`}>
+                        <span className="font-bold text-sm">{sector.stats.clients}+</span>
+                        <span className="text-xs ml-1 opacity-70">clients</span>
+                      </div>
+                    </div>
+
+                    {/* Roles - show on hover */}
+                    <div className={`
+                      flex flex-wrap gap-2 mt-4 transition-all duration-500
+                      ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+                    `}>
                       {sector.roles.slice(0, 3).map((role) => (
                         <span
                           key={role}
-                          className="text-xs px-3 py-1.5 bg-cream/10 backdrop-blur-sm text-cream rounded-full border border-cream/20"
+                          className={`text-xs px-3 py-1.5 rounded-full ${
+                            sector.featured 
+                              ? 'bg-white/10 text-white border border-white/20' 
+                              : 'bg-white/10 text-white border border-white/20'
+                          }`}
                         >
                           {role}
                         </span>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Arrow icon */}
-                  <div className={`
-                    absolute bottom-6 right-6 w-10 h-10 rounded-full bg-coral
-                    flex items-center justify-center shadow-large
-                    transition-all duration-500
-                    ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}
-                  `}>
-                    <ArrowRight className="w-5 h-5 text-white" />
                   </div>
                 </div>
               </Link>

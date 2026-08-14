@@ -88,11 +88,13 @@ export default function ContactPage() {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-gradient-to-b from-cream-dark to-cream">
+        <section className="pt-32 pb-20 bg-white">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="badge mb-6">Get in Touch</span>
-              <h1 className="font-display text-fluid-hero font-bold text-brown mb-6 leading-tight">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+                Get in Touch
+              </span>
+              <h1 className="font-display text-fluid-hero font-extrabold text-gray-900 mb-6 leading-tight">
                 Let's Build<br />
                 <span className="text-gradient">Something Great</span>
               </h1>
@@ -105,14 +107,14 @@ export default function ContactPage() {
         </section>
 
         {/* Global Clock */}
-        <section className="py-8 bg-brown text-cream">
+        <section className="py-8 bg-surface-dark text-white">
           <div className="container">
             <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
               {timeZones.map((tz) => (
                 <div key={tz.city} className="text-center">
                   <span className="text-xl mr-1">{tz.flag}</span>
-                  <span className="text-sm text-gray-300">{tz.city}</span>
-                  <div className="font-display text-lg font-bold text-sun">
+                  <span className="text-sm text-gray-400">{tz.city}</span>
+                  <div className="font-display text-lg font-extrabold text-brand-lime">
                     {getTimeInZone(tz.offset)}
                   </div>
                 </div>
@@ -127,7 +129,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Form Section */}
               <div>
-                <h2 className="font-display text-fluid-3xl font-bold text-brown mb-6">
+                <h2 className="font-display text-fluid-3xl font-extrabold text-gray-900 mb-6">
                   Start the Conversation
                 </h2>
 
@@ -135,10 +137,10 @@ export default function ContactPage() {
                 <div className="flex gap-4 mb-8">
                   <button
                     onClick={() => setFormType('employer')}
-                    className={`flex-1 py-4 px-6 rounded-xl font-medium transition-all ${
+                    className={`flex-1 py-4 px-6 rounded-xl font-semibold transition-all ${
                       formType === 'employer'
-                        ? 'bg-emerald text-cream shadow-medium'
-                        : 'bg-cream-dark text-brown hover:bg-gray-200'
+                        ? 'bg-brand-violet text-white shadow-medium'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <Briefcase className="w-5 h-5 inline mr-2" />
@@ -146,10 +148,10 @@ export default function ContactPage() {
                   </button>
                   <button
                     onClick={() => setFormType('candidate')}
-                    className={`flex-1 py-4 px-6 rounded-xl font-medium transition-all ${
+                    className={`flex-1 py-4 px-6 rounded-xl font-semibold transition-all ${
                       formType === 'candidate'
-                        ? 'bg-emerald text-cream shadow-medium'
-                        : 'bg-cream-dark text-brown hover:bg-gray-200'
+                        ? 'bg-brand-violet text-white shadow-medium'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <User className="w-5 h-5 inline mr-2" />
@@ -159,11 +161,11 @@ export default function ContactPage() {
 
                 {/* Form */}
                 {submitted ? (
-                  <div className="bg-emerald/10 rounded-2xl p-8 text-center">
-                    <div className="w-16 h-16 rounded-full bg-emerald text-cream flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-brand-lime/10 rounded-2xl p-8 text-center">
+                    <div className="w-16 h-16 rounded-full bg-brand-lime text-gray-900 flex items-center justify-center mx-auto mb-4">
                       <Check className="w-8 h-8" />
                     </div>
-                    <h3 className="font-display text-2xl font-bold text-brown mb-2">
+                    <h3 className="font-display text-2xl font-extrabold text-gray-900 mb-2">
                       Message Sent!
                     </h3>
                     <p className="text-gray-500">
@@ -174,7 +176,7 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-brown mb-2">
+                        <label className="block text-sm font-semibold text-gray-900 mb-2">
                           Full Name *
                         </label>
                         <input
@@ -182,12 +184,12 @@ export default function ContactPage() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-emerald focus:ring-2 focus:ring-emerald/20 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 outline-none transition-all"
                           placeholder="John Doe"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-brown mb-2">
+                        <label className="block text-sm font-semibold text-gray-900 mb-2">
                           Email Address *
                         </label>
                         <input
@@ -195,7 +197,7 @@ export default function ContactPage() {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-emerald focus:ring-2 focus:ring-emerald/20 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-brand-violet focus:ring-2 focus:ring-brand-violet/20 outline-none transition-all"
                           placeholder="john@example.com"
                         />
                       </div>

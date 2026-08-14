@@ -67,12 +67,12 @@ export default function Counter({
 
   return (
     <div ref={counterRef} className={`text-center ${className}`}>
-      <div className="font-display text-fluid-5xl font-bold text-coral leading-none">
+      <div className="font-display text-fluid-5xl font-extrabold text-brand-lime leading-none">
         {prefix}
         <span className="counter">{count.toLocaleString()}</span>
         {suffix}
       </div>
-      <div className="mt-2 text-cream/80 text-fluid-lg font-medium tracking-wide uppercase">
+      <div className="mt-2 text-white/80 text-fluid-lg font-medium tracking-wide uppercase">
         {label}
       </div>
     </div>

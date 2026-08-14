@@ -13,9 +13,9 @@ import Link from 'next/link'
 const TalentFlowGlobe = dynamic(() => import('@/components/3d/TalentFlowGlobe'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[500px] flex items-center justify-center bg-brown rounded-3xl">
-      <div className="text-center text-cream">
-        <div className="animate-spin w-8 h-8 border-2 border-sun border-t-transparent rounded-full mx-auto mb-4" />
+    <div className="w-full h-[500px] flex items-center justify-center bg-surface-dark rounded-[28px]">
+      <div className="text-center text-white">
+        <div className="animate-spin w-8 h-8 border-2 border-brand-lime border-t-transparent rounded-full mx-auto mb-4" />
         <p className="text-gray-400 text-sm">Loading 3D Globe...</p>
       </div>
     </div>
@@ -69,12 +69,15 @@ export default function Home() {
         <section className="section">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="text-emerald text-sm uppercase tracking-widest font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full">
                 Our Philosophy
               </span>
-              <h2 className="font-display text-fluid-4xl font-bold text-brown mt-4 mb-8 leading-tight">
+              <h2 className="font-display text-fluid-4xl font-extrabold text-gray-900 mt-6 mb-8 leading-tight">
                 We don't just find jobs.<br />
-                We architect careers and build teams.
+                We architect <span className="relative inline-block">
+                  <span className="relative z-10">careers</span>
+                  <span className="absolute inset-x-0 bottom-1 h-3 bg-brand-lime -z-0" />
+                </span> and build teams.
               </h2>
               <p className="text-fluid-lg text-gray-500 leading-relaxed mb-8">
                 For over 5 years, Contact to Hire has been the bridge between India's 
@@ -94,20 +97,20 @@ export default function Home() {
         </section>
         
         {/* 3D Globe Section */}
-        <section className="section bg-cream-dark">
+        <section className="section">
           <div className="container">
             <div className="text-center mb-12">
-              <span className="text-emerald text-sm uppercase tracking-widest font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full">
                 Global Reach
               </span>
-              <h2 className="font-display text-fluid-4xl font-bold text-brown mt-4">
+              <h2 className="font-display text-fluid-4xl font-extrabold text-gray-900 mt-4">
                 India to EMEA Talent Flow
               </h2>
               <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
                 Explore our interactive 3D globe showing talent flow from India to EMEA destinations.
               </p>
             </div>
-            <div className="relative h-[600px] bg-brown rounded-3xl overflow-hidden">
+            <div className="relative h-[600px] bg-surface-dark rounded-[28px] overflow-hidden">
               <TalentFlowGlobe />
             </div>
           </div>
@@ -117,14 +120,14 @@ export default function Home() {
         <SectorGrid />
         
         {/* Featured Articles */}
-        <section className="section bg-cream-dark">
+        <section className="section bg-white">
           <div className="container">
             <div className="flex items-center justify-between mb-12">
               <div>
-                <span className="text-emerald text-sm uppercase tracking-widest font-medium">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full">
                   Latest Insights
                 </span>
-                <h2 className="font-display text-fluid-4xl font-bold text-brown mt-4">
+                <h2 className="font-display text-fluid-4xl font-extrabold text-gray-900 mt-4">
                   Featured Articles
                 </h2>
               </div>
@@ -138,7 +141,7 @@ export default function Home() {
                 <Link
                   key={article.id}
                   href={`/insights/${article.id}`}
-                  className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-large transition-all duration-300"
+                  className="group bg-white rounded-[20px] overflow-hidden border border-gray-200 hover:shadow-large transition-all duration-300"
                 >
                   <div className="aspect-[16/9] relative overflow-hidden">
                     <img
@@ -147,7 +150,7 @@ export default function Home() {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="bg-emerald text-cream text-xs font-bold px-3 py-1 rounded-full">
+                      <span className="bg-brand-lime text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                         {article.category}
                       </span>
                     </div>
@@ -167,7 +170,7 @@ export default function Home() {
                         {article.readTime}
                       </span>
                     </div>
-                    <h3 className="font-display text-lg font-bold text-brown mb-2 group-hover:text-emerald transition-colors">
+                    <h3 className="font-display text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-violet transition-colors">
                       {article.title}
                     </h3>
                     <p className="text-gray-500 text-sm">
@@ -184,51 +187,45 @@ export default function Home() {
         <ClientMarquee />
         
         {/* CTA Section */}
-        <section className="section bg-gradient-to-br from-brown via-brown to-terracotta text-cream relative overflow-hidden">
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div 
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-                backgroundSize: '40px 40px'
-              }}
-            />
-          </div>
-          
-          <div className="container relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-fluid-4xl font-bold mb-6">
-                Ready to Build Your Dream Team?
-              </h2>
-              <p className="text-fluid-lg text-cream/80 mb-10">
-                Whether you're scaling your team or seeking your next career move, 
-                we're here to make it happen.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button 
-                  href="/contact?type=employer" 
-                  variant="primary" 
-                  size="lg"
-                  icon={<ArrowRight className="w-5 h-5" />}
-                >
-                  Start Hiring Today
-                </Button>
-                <Button 
-                  href="/contact?type=candidate" 
-                  variant="ghost" 
-                  size="lg"
-                  className="!text-cream hover:!text-brown hover:bg-cream/10"
-                >
-                  Explore Opportunities
-                </Button>
+        <section className="section">
+          <div className="container">
+            <div className="bg-surface-dark rounded-[28px] px-8 py-16 lg:px-16 text-center relative overflow-hidden">
+              {/* Decorative accents */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-lime/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-violet/10 rounded-full blur-3xl" />
+
+              <div className="relative z-10 max-w-3xl mx-auto">
+                <h2 className="font-display text-fluid-4xl font-extrabold text-white mb-6">
+                  Ready to Build Your <span className="relative inline-block">
+                    <span className="relative z-10">Dream Team?</span>
+                    <span className="absolute inset-x-0 bottom-1 h-4 bg-brand-lime -z-0" />
+                  </span>
+                </h2>
+                <p className="text-fluid-lg text-gray-400 mb-10">
+                  Whether you're scaling your team or seeking your next career move, 
+                  we're here to make it happen.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Button 
+                    href="/contact?type=employer" 
+                    variant="primary" 
+                    size="lg"
+                    icon={<ArrowRight className="w-5 h-5" />}
+                  >
+                    Start Hiring Today
+                  </Button>
+                  <Button 
+                    href="/contact?type=candidate" 
+                    variant="ghost" 
+                    size="lg"
+                    className="!text-white hover:!text-brand-lime hover:bg-white/10"
+                  >
+                    Explore Opportunities
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute top-10 left-10 w-32 h-32 bg-sun/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-48 h-48 bg-terracotta/20 rounded-full blur-3xl" />
         </section>
       </main>
       

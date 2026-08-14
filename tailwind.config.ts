@@ -9,60 +9,61 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Base Colors
-        cream: {
-          DEFAULT: '#F8F5F0',
-          dark: '#F0EBE3',
+        // Brand Accents
+        brand: {
+          lime: '#D2FF00',
+          'lime-muted': '#C4EE12',
+          violet: '#6332F6',
+          'violet-dark': '#4F24CC',
         },
-        // Primary - Charcoal (Dark)
-        charcoal: {
-          DEFAULT: '#1A1A1A',
-          light: '#3D3D3D',
+        // Surfaces
+        surface: {
+          dark: '#0E0F11',
+          'dark-card': '#1A1B1E',
+          light: '#F8F9FA',
+          white: '#FFFFFF',
         },
-        // Legacy alias for backward compatibility
-        brown: {
-          DEFAULT: '#1A1A1A',
-          light: '#3D3D3D',
-        },
-        // Primary Accent - Coral
-        coral: {
-          DEFAULT: '#FF6B35',
-          dark: '#E85A2E',
+        // Borders
+        border: {
+          dark: '#26282D',
+          light: '#E5E7EB',
         },
         // Legacy aliases for backward compatibility
-        sun: '#FF6B35',
-        terracotta: '#E85A2E',
-        // Secondary Accents - Sky Blue & Mint
-        sky: {
-          DEFAULT: '#A8D0E6',
-          dark: '#87CEEB',
-        },
-        mint: {
-          DEFAULT: '#C8E6C9',
-          dark: '#98D8C8',
-        },
+        coral: '#6332F6',
+        'coral-dark': '#4F24CC',
+        charcoal: '#0E0F11',
+        'charcoal-light': '#1A1B1E',
+        cream: '#F8F9FA',
+        'cream-dark': '#F0F1F3',
+        sun: '#D2FF00',
+        terracotta: '#4F24CC',
+        sky: '#D2FF00',
+        'sky-dark': '#C4EE12',
+        mint: '#6332F6',
+        'mint-dark': '#4F24CC',
+        emerald: '#D2FF00',
+        'emerald-light': '#C4EE12',
+        royal: '#6332F6',
+        'royal-light': '#4F24CC',
+        brown: '#0E0F11',
+        'brown-light': '#1A1B1E',
         sand: '#E8DCC4',
-        // Legacy aliases for backward compatibility
-        emerald: {
-          DEFAULT: '#A8D0E6',
-          light: '#87CEEB',
-        },
-        royal: {
-          DEFAULT: '#C8E6C9',
-          light: '#98D8C8',
-        },
         // Neutrals
         gray: {
-          100: '#F5F5F5',
-          200: '#E5E5E5',
-          300: '#D4D4D4',
-          400: '#A3A3A3',
-          500: '#6B6B6B',
+          100: '#F8F9FA',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
+          800: '#1F2937',
+          900: '#111827',
         },
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Georgia', 'serif'],
-        body: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Plus Jakarta Sans', 'sans-serif'],
+        body: ['var(--font-body)', 'Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'fluid-xs': 'clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem)',
@@ -75,7 +76,7 @@ const config: Config = {
         'fluid-4xl': 'clamp(2.25rem, 1.75rem + 2.5vw, 3rem)',
         'fluid-5xl': 'clamp(3rem, 2rem + 5vw, 4.5rem)',
         'fluid-6xl': 'clamp(3.75rem, 2.5rem + 6.25vw, 6rem)',
-        'fluid-hero': 'clamp(4rem, 2.5rem + 7.5vw, 8rem)',
+        'fluid-hero': 'clamp(3.5rem, 2.5rem + 5vw, 4.25rem)',
       },
       spacing: {
         '18': '4.5rem',
@@ -88,13 +89,15 @@ const config: Config = {
         '46': '11.5rem',
       },
       borderRadius: {
-        '4xl': '2rem',
+        '2xl': '20px',
+        '3xl': '28px',
+        '4xl': '36px',
         '5xl': '2.5rem',
       },
       boxShadow: {
-        'soft': '0 4px 6px rgba(26, 26, 26, 0.07)',
-        'medium': '0 10px 15px rgba(26, 26, 26, 0.1)',
-        'large': '0 20px 25px rgba(26, 26, 26, 0.12)',
+        'soft': '0 4px 6px rgba(0, 0, 0, 0.05)',
+        'medium': '0 10px 30px -10px rgba(0, 0, 0, 0.08)',
+        'large': '0 20px 40px -12px rgba(0, 0, 0, 0.12)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
@@ -104,6 +107,7 @@ const config: Config = {
         'spin-slow': 'spin 3s linear infinite',
         'pulse-slow': 'pulse 3s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
+        'spin-slower': 'spin 12s linear infinite',
       },
       keyframes: {
         fadeIn: {

@@ -1,34 +1,33 @@
-# Theme Color Update - SNAPTURE Reference
+# Theme Color Update - High-Contrast Digital Agency / Neo-Brutalist SaaS
 
-## Color Palette Analysis from Reference Image
+## Color Palette
 
-### Primary Colors
-| Role | Color Name | Hex Value | Usage |
-|------|-----------|-----------|-------|
-| Primary Accent | `coral` | #FF6B35 | CTA buttons, highlights, active states |
-| Primary Accent Hover | `coral-dark` | #E85A2E | Button hover states |
-| Background | `cream` | #F8F5F0 | Main page background |
-| Background Alt | `cream-dark` | #F0EBE3 | Section backgrounds, cards |
-| Dark Background | `charcoal` | #1A1A1A | Footer, dark sections |
-| Text Primary | `charcoal` | #2D2D2D | Main headings, body text |
-| Text Secondary | `gray-500` | #6B6B6B | Secondary text, descriptions |
+### Primary & Accent Colors
+| Token Name | Hex Code | Usage |
+|------|-----------|-------|
+| `brand.lime` | `#D2FF00` | Primary highlights, text accent, badge borders, focus states |
+| `brand.lime-muted` | `#C4EE12` | Subtle background graphics & watermarks |
+| `brand.violet` | `#6332F6` | Floating CTA stamps, active cards, badge fills |
+| `brand.violet-dark` | `#4F24CC` | Hover/active states for violet components |
 
-### Accent Colors (from reference image cards)
-| Role | Color Name | Hex Value | Usage |
-|------|-----------|-----------|-------|
-| Sky Blue | `sky` | #A8D0E6 | Feature cards, info sections |
-| Soft Mint | `mint` | #C8E6C9 | Success states, accent highlights |
-| Warm Sand | `sand` | #E8DCC4 | Neutral accent backgrounds |
+### Neutral Surfaces & Backgrounds
+| Token Name | Hex Code | Usage |
+|------|-----------|-------|
+| `surface.dark` | `#0E0F11` | Dark container card sections (Expertise, CTA footer) |
+| `surface.dark-card` | `#1A1B1E` | Default dark mode cards (Market Research, Branding) |
+| `surface.light` | `#F8F9FA` | Main page background for hero & case studies |
+| `surface.white` | `#FFFFFF` | Work preview cards, navbar background |
+| `border.dark` | `#26282D` | Dark card outline |
+| `border.light` | `#E5E7EB` | Light divider |
 
-### Neutral Colors
-| Role | Color Name | Hex Value | Usage |
-|------|-----------|-----------|-------|
-| White | `white` | #FFFFFF | Card backgrounds, buttons |
-| Gray 100 | `gray-100` | #F5F5F5 | Light backgrounds |
-| Gray 200 | `gray-200` | #E5E5E5 | Borders, dividers |
-| Gray 300 | `gray-300` | #D4D4D4 | Disabled states |
-| Gray 400 | `gray-400` | #A3A3A3 | Placeholder text |
-| Gray 500 | `gray-500` | #6B6B6B | Secondary text |
+### Typography Colors
+| Token Name | Hex Code | Usage |
+|------|-----------|-------|
+| `text-primary-dark` | `#0D0E11` | Headings and primary copy on light backgrounds |
+| `text-primary-light` | `#FFFFFF` | Headings and primary copy on dark backgrounds |
+| `text-secondary` | `#6B7280` | Subtitles, body text, metadata on light backgrounds |
+| `text-secondary-dark` | `#9CA3AF` | Subtitles, body text on dark cards |
+| `text-muted-logos` | `#8A8F98` | Greyscale partner / client brand logos |
 
 ---
 
@@ -37,22 +36,29 @@
 ### Tailwind Config Color Mapping
 ```
 OLD → NEW
-sun (#F4B942) → coral (#FF6B35)
-terracotta (#C75B39) → coral-dark (#E85A2E)
-orange (#E07B39) → Remove (replaced by coral)
-brown (#3C2415) → charcoal (#1A1A1A)
-brown-light (#5A3D2B) → charcoal-light (#3D3D3D)
-emerald (#0F5132) → sky (#A8D0E6)
-emerald-light (#1A7A4C) → sky-dark (#87CEEB)
-royal (#1E3A8A) → mint (#C8E6C9)
-royal-light (#3B5998) → mint-dark (#98D8C8)
-cream (#FDF8F0) → cream (#F8F5F0)
-cream-dark (#F5EDE0) → cream-dark (#F0EBE3)
-gray-100 (#F8F6F3) → gray-100 (#F5F5F5)
-gray-200 (#E8E4DE) → gray-200 (#E5E5E5)
-gray-300 (#D1CBC2) → gray-300 (#D4D4D4)
-gray-400 (#A69F94) → gray-400 (#A3A3A3)
-gray-500 (#736E66) → gray-500 (#6B6B6B)
+coral (#FF6B35) → brand.violet (#6332F6)
+coral-dark (#E85A2E) → brand.violet-dark (#4F24CC)
+charcoal (#1A1A1A) → surface.dark (#0E0F11)
+charcoal-light (#3D3D3D) → surface.dark-card (#1A1B1E)
+cream (#F8F5F0) → surface.light (#F8F9FA)
+cream-dark (#F0EBE3) → gray-100 (#F8F9FA)
+sun (#FF6B35) → brand.lime (#D2FF00)
+terracotta (#E85A2E) → brand.violet-dark (#4F24CC)
+sky (#A8D0E6) → brand.lime (#D2FF00)
+sky-dark (#87CEEB) → brand.lime-muted (#C4EE12)
+mint (#C8E6C9) → brand.violet (#6332F6)
+mint-dark (#98D8C8) → brand.violet-dark (#4F24CC)
+emerald (#A8D0E6) → brand.lime (#D2FF00)
+emerald-light (#87CEEB) → brand.lime-muted (#C4EE12)
+royal (#C8E6C9) → brand.violet (#6332F6)
+royal-light (#98D8C8) → brand.violet-dark (#4F24CC)
+brown (#1A1A1A) → surface.dark (#0E0F11)
+brown-light (#3D3D3D) → surface.dark-card (#1A1B1E)
+gray-100 (#F5F5F5) → gray-100 (#F8F9FA)
+gray-200 (#E5E5E5) → gray-200 (#E5E7EB)
+gray-300 (#D4D4D4) → gray-300 (#D1D5DB)
+gray-400 (#A3A3A3) → gray-400 (#9CA3AF)
+gray-500 (#6B6B6B) → gray-500 (#6B7280)
 ```
 
 ---
@@ -60,54 +66,56 @@ gray-500 (#736E66) → gray-500 (#6B6B6B)
 ## Component-Specific Updates
 
 ### Button Component
-- **Primary**: bg-coral → hover:bg-coral-dark, text-white
-- **Secondary**: text-charcoal → hover:text-coral, border-charcoal → hover:border-coral
-- **Ghost**: text-charcoal → hover:text-coral, hover:bg-cream-dark
+- **Primary**: bg-brand-violet → hover:bg-brand-violet-dark, text-white
+- **Secondary**: text-gray-900 → hover:text-brand-violet, border-gray-900 → hover:border-brand-violet
+- **Ghost**: text-gray-900 → hover:text-brand-violet, hover:bg-gray-100
 
 ### Navigation
-- **Logo**: Contact2Hire with "2" in coral color
-- **Links**: text-charcoal → hover:text-coral
-- **Active Link**: text-coral with coral underline
-- **CTA Button**: bg-coral text-white
-- **Mobile Menu**: bg-cream
+- **Logo**: Contact2Hire with "2" in brand-lime on dark background
+- **Links**: text-gray-700 → hover:text-brand-violet
+- **Active Link**: text-brand-violet with brand-violet underline
+- **CTA Button**: bg-brand-violet text-white rounded-full
+- **Mobile Menu**: bg-white
 
 ### Footer
-- **Background**: bg-charcoal
-- **Text**: text-cream (primary), text-gray-300 (secondary)
-- **Links**: text-gray-300 → hover:text-coral
-- **Social Icons**: bg-cream/10 → hover:bg-coral hover:text-charcoal
+- **Background**: bg-surface-dark
+- **Text**: text-white (primary), text-gray-400 (secondary)
+- **Links**: text-gray-400 → hover:text-brand-lime
+- **Social Icons**: bg-white/10 → hover:bg-brand-lime hover:text-gray-900
 
 ### Hero Section
-- **Background**: bg-cream
-- **Decorative blur**: bg-coral/10, bg-sky/10
-- **Floating elements**: bg-coral, bg-coral-dark/50, bg-sky
-- **Headings**: text-charcoal
+- **Background**: bg-surface-light
+- **Eyebrow badge**: bg-brand-violet/10 text-brand-violet
+- **Headings**: text-gray-900 font-extrabold
+- **Highlight**: bg-brand-lime behind key words
 - **Subtext**: text-gray-500
+- **Stats**: text-brand-violet font-extrabold
 
 ### Metrics Section
-- **Background**: bg-charcoal
-- **Label text**: text-cream/80
-- **Counter numbers**: text-coral
+- **Container**: bg-surface-dark rounded-[28px]
+- **Label text**: text-white/80
+- **Counter numbers**: text-brand-lime
 
 ### Job Ticker
-- **Background**: bg-charcoal
-- **Ticker badge**: bg-coral text-white
-- **Job items**: bg-cream/10 → hover:bg-cream/20
-- **Arrow icon**: text-coral
+- **Background**: bg-surface-dark
+- **Ticker badge**: bg-brand-lime text-gray-900
+- **Job items**: bg-white/10 → hover:bg-white/20
+- **Arrow icon**: text-brand-lime
 
 ### Cards (SectorGrid, Services)
-- **Background**: bg-white
-- **Border**: border-gray-200
-- **Hover**: hover:border-coral, hover:shadow-large
-- **Icon background**: bg-coral/10 or bg-sky/10
-- **Icon color**: text-coral or text-sky
+- **Background**: bg-surface-dark-card or bg-brand-violet (featured)
+- **Border**: border-white/20
+- **Hover**: hover:shadow-large, hover:-translate-y-1
+- **Icon background**: bg-brand-lime/10
+- **Icon color**: text-brand-lime
 
 ### Form Elements
-- **Input focus**: border-coral, ring-coral/20
-- **Submit button**: bg-coral
+- **Input focus**: border-brand-violet, ring-brand-violet/20
+- **Submit button**: bg-brand-violet
 
 ### CTA Sections
-- **Background gradient**: from-charcoal via-charcoal to-coral
+- **Background**: bg-surface-dark rounded-[28px]
+- **Decorative**: bg-brand-lime/5, bg-brand-violet/10 blur circles
 
 ---
 
@@ -115,32 +123,28 @@ gray-500 (#736E66) → gray-500 (#6B6B6B)
 
 ```css
 :root {
-  /* Base Colors */
-  --color-cream: #F8F5F0;
-  --color-cream-dark: #F0EBE3;
-  
-  /* Primary - Charcoal */
-  --color-charcoal: #1A1A1A;
-  --color-charcoal-light: #3D3D3D;
-  
-  /* Primary Accent - Coral */
-  --color-coral: #FF6B35;
-  --color-coral-dark: #E85A2E;
-  
-  /* Secondary Accents */
-  --color-sky: #A8D0E6;
-  --color-sky-dark: #87CEEB;
-  --color-mint: #C8E6C9;
-  --color-mint-dark: #98D8C8;
-  --color-sand: #E8DCC4;
-  
-  /* Neutrals */
-  --color-white: #FFFFFF;
-  --color-gray-100: #F5F5F5;
-  --color-gray-200: #E5E5E5;
-  --color-gray-300: #D4D4D4;
-  --color-gray-400: #A3A3A3;
-  --color-gray-500: #6B6B6B;
+  /* Brand Accents */
+  --accent-lime: #D2FF00;
+  --accent-lime-muted: #C4EE12;
+  --accent-violet: #6332F6;
+  --accent-violet-dark: #4F24CC;
+
+  /* Surfaces */
+  --surface-dark: #0E0F11;
+  --surface-dark-card: #1A1B1E;
+  --surface-light: #F8F9FA;
+  --surface-white: #FFFFFF;
+
+  /* Borders */
+  --border-dark: #26282D;
+  --border-light: #E5E7EB;
+
+  /* Typography Colors */
+  --text-primary-dark: #0D0E11;
+  --text-primary-light: #FFFFFF;
+  --text-secondary: #6B7280;
+  --text-secondary-dark: #9CA3AF;
+  --text-muted-logos: #8A8F98;
 }
 ```
 
@@ -150,38 +154,21 @@ gray-500 (#736E66) → gray-500 (#6B6B6B)
 
 ```typescript
 colors: {
-  // Base Colors
-  cream: {
-    DEFAULT: '#F8F5F0',
-    dark: '#F0EBE3',
+  brand: {
+    lime: '#D2FF00',
+    'lime-muted': '#C4EE12',
+    violet: '#6332F6',
+    'violet-dark': '#4F24CC',
   },
-  // Primary - Charcoal
-  charcoal: {
-    DEFAULT: '#1A1A1A',
-    light: '#3D3D3D',
+  surface: {
+    dark: '#0E0F11',
+    'dark-card': '#1A1B1E',
+    light: '#F8F9FA',
+    white: '#FFFFFF',
   },
-  // Primary Accent - Coral
-  coral: {
-    DEFAULT: '#FF6B35',
-    dark: '#E85A2E',
-  },
-  // Secondary Accents
-  sky: {
-    DEFAULT: '#A8D0E6',
-    dark: '#87CEEB',
-  },
-  mint: {
-    DEFAULT: '#C8E6C9',
-    dark: '#98D8C8',
-  },
-  sand: '#E8DCC4',
-  // Neutrals
-  gray: {
-    100: '#F5F5F5',
-    200: '#E5E5E5',
-    300: '#D4D4D4',
-    400: '#A3A3A3',
-    500: '#6B6B6B',
+  border: {
+    dark: '#26282D',
+    light: '#E5E7EB',
   },
 }
 ```
@@ -191,24 +178,27 @@ colors: {
 ## Implementation Notes
 
 1. **Global Search/Replace Strategy**:
-   - Replace `bg-sun` → `bg-coral`
-   - Replace `text-sun` → `text-coral`
-   - Replace `bg-brown` → `bg-charcoal`
-   - Replace `text-brown` → `text-charcoal`
-   - Replace `hover:text-emerald` → `hover:text-coral`
-   - Replace `border-brown` → `border-charcoal`
-   - Replace `text-emerald` → `text-sky` (for accent text)
-   - Replace `bg-emerald` → `bg-sky` (for accent backgrounds)
-   - Replace `bg-terracotta` → `bg-coral-dark`
+   - Replace `bg-coral` → `bg-brand-violet`
+   - Replace `text-coral` → `text-brand-violet`
+   - Replace `bg-charcoal` → `bg-surface-dark`
+   - Replace `text-charcoal` → `text-gray-900`
+   - Replace `bg-cream` → `bg-surface-light`
+   - Replace `text-cream` → `text-white`
+   - Replace `bg-sun` → `bg-brand-lime`
+   - Replace `text-sun` → `text-brand-lime`
+   - Replace `bg-emerald` → `bg-brand-lime`
+   - Replace `text-emerald` → `text-brand-violet`
+   - Replace `bg-brown` → `bg-surface-dark`
+   - Replace `text-brown` → `text-gray-900`
 
-2. **Shadow Colors**: Update shadow tints from brown-based to charcoal-based
+2. **Font Family**: Playfair Display → Plus Jakarta Sans (display), Inter (body)
 
-3. **Gradients**: Update gradient definitions to use new colors
+3. **Border Radius**: rounded-2xl → 20px, rounded-3xl → 28px, rounded-4xl → 36px
 
-4. **Focus States**: Update focus-visible:ring-emerald → focus-visible:ring-coral
+4. **Shadows**: Updated to use rgba(0, 0, 0, ...) based shadows
 
-5. **Selection**: Update selection bg from sun to coral
+5. **Focus States**: focus-visible:ring-brand-violet
 
-6. **Scrollbar**: Update scrollbar colors to use charcoal
+6. **Selection**: bg-brand-lime, text-surface-dark
 
-7. **3D Globe**: Update globe colors (sun → coral, emerald → sky)
+7. **3D Globe**: Updated to use brand-lime (#D2FF00) and brand-violet (#6332F6)

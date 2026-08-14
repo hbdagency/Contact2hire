@@ -319,11 +319,13 @@ export default function InsightsPage() {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-gradient-to-b from-cream-dark to-cream">
+        <section className="pt-32 pb-20 bg-white">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="badge mb-6">Insights & Resources</span>
-              <h1 className="font-display text-fluid-hero font-bold text-brown mb-6 leading-tight">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+                Insights & Resources
+              </span>
+              <h1 className="font-display text-fluid-hero font-extrabold text-gray-900 mb-6 leading-tight">
                 Knowledge Hub<br />
                 <span className="text-gradient">For Talent & Employers</span>
               </h1>
@@ -340,10 +342,10 @@ export default function InsightsPage() {
         <section className="section">
           <div className="container">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="font-display text-fluid-2xl font-bold text-brown">
+              <h2 className="font-display text-fluid-2xl font-extrabold text-gray-900">
                 Featured Articles
               </h2>
-              <span className="text-emerald text-sm font-medium">
+              <span className="text-brand-violet text-sm font-medium">
                 Latest Updates
               </span>
             </div>
@@ -362,7 +364,7 @@ export default function InsightsPage() {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="bg-emerald text-cream text-xs font-bold px-3 py-1 rounded-full">
+                      <span className="bg-brand-lime text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                         {article.category}
                       </span>
                     </div>
@@ -382,22 +384,22 @@ export default function InsightsPage() {
                         {article.readTime}
                       </span>
                     </div>
-                    <h3 className="font-display text-lg font-bold text-brown mb-2 group-hover:text-emerald transition-colors line-clamp-2">
+                    <h3 className="font-display text-lg font-extrabold text-gray-900 mb-2 group-hover:text-brand-violet transition-colors line-clamp-2">
                       {article.title}
                     </h3>
                     <p className="text-gray-500 text-sm mb-4 line-clamp-2">
                       {article.excerpt}
                     </p>
-                    <div className="bg-sun/10 rounded-lg p-3 mb-4">
-                      <p className="text-brown text-sm font-medium">
-                        <strong className="text-emerald">How we help:</strong> {article.howWeHelp}
+                    <div className="bg-brand-lime/10 rounded-lg p-3 mb-4">
+                      <p className="text-gray-900 text-sm font-medium">
+                        <strong className="text-brand-violet">How we help:</strong> {article.howWeHelp}
                       </p>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm text-gray-400">
                         {article.stats.views.toLocaleString()} views
                       </span>
-                      <span className="text-emerald font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                      <span className="text-brand-violet font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
                         Read More <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
@@ -409,12 +411,12 @@ export default function InsightsPage() {
         </section>
 
         {/* Main Content Grid */}
-        <section className="section bg-cream-dark">
+        <section className="section bg-white">
           <div className="container">
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               {/* Articles List */}
               <div className="lg:col-span-3">
-                <h2 className="font-display text-fluid-2xl font-bold text-brown mb-8">
+                <h2 className="font-display text-fluid-2xl font-extrabold text-gray-900 mb-8">
                   All Articles
                 </h2>
 
@@ -432,7 +434,7 @@ export default function InsightsPage() {
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute top-3 left-3">
-                          <span className="bg-brown/80 text-cream text-xs font-bold px-2 py-1 rounded-full">
+                          <span className="bg-surface-dark/80 text-white text-xs font-bold px-2 py-1 rounded-full">
                             {article.category}
                           </span>
                         </div>
@@ -443,15 +445,15 @@ export default function InsightsPage() {
                           <span>•</span>
                           <span>{article.readTime}</span>
                         </div>
-                        <h3 className="font-display text-base font-bold text-brown mb-2 group-hover:text-emerald transition-colors line-clamp-2">
+                        <h3 className="font-display text-base font-extrabold text-gray-900 mb-2 group-hover:text-brand-violet transition-colors line-clamp-2">
                           {article.title}
                         </h3>
                         <p className="text-gray-500 text-sm line-clamp-2 mb-3">
                           {article.excerpt}
                         </p>
-                        <div className="bg-emerald/5 rounded-lg p-2">
-                          <p className="text-brown text-xs line-clamp-2">
-                            <strong className="text-emerald">How we help:</strong> {article.howWeHelp}
+                        <div className="bg-brand-lime/5 rounded-lg p-2">
+                          <p className="text-gray-900 text-xs line-clamp-2">
+                            <strong className="text-brand-violet">How we help:</strong> {article.howWeHelp}
                           </p>
                         </div>
                       </div>
@@ -464,13 +466,13 @@ export default function InsightsPage() {
               <div className="lg:col-span-1">
                 {/* Categories */}
                 <div className="bg-white rounded-xl p-6 border border-gray-200 mb-6">
-                  <h3 className="font-display text-lg font-bold text-brown mb-4">
+                  <h3 className="font-display text-lg font-extrabold text-gray-900 mb-4">
                     Categories
                   </h3>
                   <ul className="space-y-2">
                     {categories.map((cat) => (
                       <li key={cat.name}>
-                        <button className="w-full flex items-center justify-between py-2 px-3 rounded-lg hover:bg-cream transition-colors text-left">
+                        <button className="w-full flex items-center justify-between py-2 px-3 rounded-lg hover:bg-gray-100 transition-colors text-left">
                           <span className="text-gray-600">{cat.name}</span>
                           <span className="text-gray-400 text-sm">{cat.count}</span>
                         </button>
@@ -481,14 +483,14 @@ export default function InsightsPage() {
 
                 {/* Popular Tags */}
                 <div className="bg-white rounded-xl p-6 border border-gray-200 mb-6">
-                  <h3 className="font-display text-lg font-bold text-brown mb-4">
+                  <h3 className="font-display text-lg font-extrabold text-gray-900 mb-4">
                     Popular Tags
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {popularTags.map((tag) => (
                       <span
                         key={tag}
-                        className="bg-cream text-brown text-sm px-3 py-1 rounded-full hover:bg-emerald hover:text-cream transition-colors cursor-pointer"
+                        className="bg-gray-100 text-gray-900 text-sm px-3 py-1 rounded-full hover:bg-brand-violet hover:text-white transition-colors cursor-pointer"
                       >
                         {tag}
                       </span>
@@ -497,17 +499,17 @@ export default function InsightsPage() {
                 </div>
 
                 {/* Newsletter CTA */}
-                <div className="bg-brown rounded-xl p-6 text-cream">
-                  <h3 className="font-display text-lg font-bold mb-2">
+                <div className="bg-surface-dark rounded-xl p-6 text-white">
+                  <h3 className="font-display text-lg font-extrabold mb-2">
                     Stay Updated
                   </h3>
-                  <p className="text-gray-300 text-sm mb-4">
+                  <p className="text-gray-400 text-sm mb-4">
                     Get the latest insights delivered to your inbox.
                   </p>
                   <input
                     type="email"
                     placeholder="Your email"
-                    className="w-full px-4 py-2 rounded-lg bg-cream/10 border border-cream/20 text-cream placeholder-gray-400 mb-3 focus:outline-none focus:border-sun"
+                    className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 mb-3 focus:outline-none focus:border-brand-lime"
                   />
                   <Button variant="primary" className="w-full">
                     Subscribe
@@ -531,10 +533,10 @@ export default function InsightsPage() {
                 const IconComponent = stat.icon
                 return (
                   <div key={stat.label} className="text-center">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald/10 flex items-center justify-center mx-auto mb-3">
-                      <IconComponent className="w-7 h-7 text-emerald" />
+                    <div className="w-14 h-14 rounded-2xl bg-brand-lime/10 flex items-center justify-center mx-auto mb-3">
+                      <IconComponent className="w-7 h-7 text-brand-lime" />
                     </div>
-                    <div className="font-display text-3xl font-bold text-brown">
+                    <div className="font-display text-3xl font-extrabold text-gray-900">
                       {stat.value}
                     </div>
                     <div className="text-gray-500 text-sm">{stat.label}</div>
@@ -546,33 +548,38 @@ export default function InsightsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="section bg-gradient-to-br from-brown via-brown to-terracotta text-cream">
+        <section className="section">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-fluid-4xl font-bold mb-6">
-                Need Personalized Guidance?
-              </h2>
-              <p className="text-fluid-lg text-cream/80 mb-10">
-                Our recruitment experts are here to help you navigate your career 
-                or hiring journey across EMEA.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  href="/contact?type=candidate"
-                  variant="primary"
-                  size="lg"
-                  icon={<ArrowRight className="w-5 h-5" />}
-                >
-                  Career Consultation
-                </Button>
-                <Button
-                  href="/contact?type=employer"
-                  variant="ghost"
-                  size="lg"
-                  className="!text-cream hover:!text-brown hover:bg-cream/10"
-                >
-                  Hiring Inquiry
-                </Button>
+            <div className="bg-surface-dark rounded-[28px] px-8 py-16 lg:px-16 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-lime/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-violet/10 rounded-full blur-3xl" />
+              
+              <div className="relative z-10 max-w-3xl mx-auto">
+                <h2 className="font-display text-fluid-4xl font-extrabold text-white mb-6">
+                  Need Personalized Guidance?
+                </h2>
+                <p className="text-fluid-lg text-gray-400 mb-10">
+                  Our recruitment experts are here to help you navigate your career 
+                  or hiring journey across EMEA.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Button
+                    href="/contact?type=candidate"
+                    variant="primary"
+                    size="lg"
+                    icon={<ArrowRight className="w-5 h-5" />}
+                  >
+                    Career Consultation
+                  </Button>
+                  <Button
+                    href="/contact?type=employer"
+                    variant="ghost"
+                    size="lg"
+                    className="!text-white hover:!text-brand-lime hover:bg-white/10"
+                  >
+                    Hiring Inquiry
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

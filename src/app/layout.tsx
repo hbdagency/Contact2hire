@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import './globals.css'
 import TimezoneSidebar from '@/components/layout/TimezoneSidebar'
 
-const playfair = Playfair_Display({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
@@ -129,17 +129,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-cream text-charcoal antialiased">
-        {/* Grain texture overlay */}
-        <div className="grain-overlay" aria-hidden="true" />
-        
+      <body className="bg-surface-light text-gray-900 antialiased">
         {/* Timezone Sidebar - appears on hover from left */}
         <TimezoneSidebar />
         

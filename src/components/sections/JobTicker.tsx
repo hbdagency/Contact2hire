@@ -29,16 +29,16 @@ export default function JobTicker() {
 
   return (
     <div
-      className="bg-charcoal text-cream py-4 overflow-hidden relative"
+      className="bg-surface-dark text-white py-4 overflow-hidden relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Gradient overlays for smooth edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-charcoal to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-charcoal to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface-dark to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface-dark to-transparent z-10" />
       
       {/* Ticker header */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2 bg-coral text-white px-4 py-2 rounded-full">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2 bg-brand-lime text-gray-900 px-4 py-2 rounded-full">
         <Briefcase className="w-4 h-4" />
         <span className="text-sm font-bold whitespace-nowrap">Current Openings</span>
       </div>
@@ -57,10 +57,10 @@ export default function JobTicker() {
           <Link
             key={index}
             href="/contact?type=candidate"
-            className="flex items-center gap-3 bg-cream/10 hover:bg-cream/20 px-4 py-2 rounded-full transition-colors whitespace-nowrap group"
+            className="flex items-center gap-3 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition-colors whitespace-nowrap group"
           >
-            <span className="font-medium text-cream">{job.title}</span>
-            <ArrowRight className="w-4 h-4 text-coral opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="font-medium text-white">{job.title}</span>
+            <ArrowRight className="w-4 h-4 text-brand-lime opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
         ))}
       </div>

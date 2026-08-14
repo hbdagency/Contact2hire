@@ -82,7 +82,7 @@ export default function TimezoneSidebar() {
   return (
     <div
       ref={sidebarRef}
-      className={`fixed left-0 top-0 h-full w-72 bg-cream/95 backdrop-blur-md shadow-2xl z-50 
+      className={`fixed left-0 top-0 h-full w-72 bg-white/95 backdrop-blur-md shadow-2xl z-50 
         transform transition-transform duration-300 ease-in-out border-r border-gray-200
         ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}
       onMouseEnter={() => {
@@ -100,8 +100,8 @@ export default function TimezoneSidebar() {
       <div className="h-full overflow-y-auto py-6 px-4">
         {/* Header */}
         <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-200">
-          <Clock className="w-5 h-5 text-sky" />
-          <h3 className="font-display text-lg font-bold text-charcoal">Global Time Zones</h3>
+          <Clock className="w-5 h-5 text-brand-violet" />
+          <h3 className="font-display text-lg font-bold text-gray-900">Global Time Zones</h3>
         </div>
 
         {/* Time zones by region */}
@@ -115,21 +115,21 @@ export default function TimezoneSidebar() {
                 <div
                   key={tz.city}
                   className={`flex items-center justify-between p-3 rounded-xl transition-colors
-                    ${tz.region === 'HQ' ? 'bg-coral/10 border border-coral/20' : 'bg-white hover:bg-gray-50 border border-gray-100'}`}
+                    ${tz.region === 'HQ' ? 'bg-brand-violet/10 border border-brand-violet/20' : 'bg-white hover:bg-gray-50 border border-gray-100'}`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-xl">{tz.flag}</span>
                     <div>
-                      <div className="font-medium text-charcoal text-sm">{tz.city}</div>
+                      <div className="font-medium text-gray-900 text-sm">{tz.city}</div>
                       <div className="text-xs text-gray-400">{tz.zone} ({tz.offset})</div>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="font-display text-lg font-bold text-charcoal">
+                    <div className="font-display text-lg font-bold text-gray-900">
                       {getTimeInZone(tz.offset)}
                     </div>
                     {tz.region === 'HQ' && (
-                      <div className="text-xs text-coral font-medium">Our HQ</div>
+                      <div className="text-xs text-brand-violet font-medium">Our HQ</div>
                     )}
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function TimezoneSidebar() {
       {/* Trigger indicator */}
       <div 
         className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-full
-          bg-charcoal text-cream px-2 py-4 rounded-r-lg shadow-lg
+          bg-surface-dark text-white px-2 py-4 rounded-r-lg shadow-lg
           transition-opacity duration-300 ${isVisible ? 'opacity-0' : 'opacity-100'}`}
       >
         <Clock className="w-4 h-4" />

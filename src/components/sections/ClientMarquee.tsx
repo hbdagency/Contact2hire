@@ -30,8 +30,8 @@ export default function ClientMarquee() {
   }, [])
 
   return (
-    <section className="py-16 bg-cream-dark overflow-hidden">
-      <div className="container mb-8">
+    <section className="py-16 bg-white overflow-hidden">
+      <div className="container mb-10">
         <p className="text-center text-gray-500 text-sm uppercase tracking-widest font-medium">
           Trusted by leading companies across EMEA
         </p>
@@ -48,10 +48,10 @@ export default function ClientMarquee() {
           {clients.map((client, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-32 h-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+              className="flex-shrink-0 w-32 h-8 flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity grayscale"
             >
               {/* Placeholder logo - replace with actual Image component */}
-              <div className="text-charcoal font-display text-lg font-bold whitespace-nowrap">
+              <div className="text-gray-400 font-display text-lg font-bold whitespace-nowrap">
                 {client.name}
               </div>
             </div>

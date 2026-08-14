@@ -8,9 +8,9 @@ import dynamic from 'next/dynamic'
 const TalentFlowGlobe = dynamic(() => import('@/components/3d/TalentFlowGlobe'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full min-h-[400px] flex items-center justify-center bg-brown rounded-3xl">
-      <div className="text-center text-cream">
-        <div className="animate-spin w-8 h-8 border-2 border-sun border-t-transparent rounded-full mx-auto mb-4" />
+    <div className="w-full h-full min-h-[400px] flex items-center justify-center bg-surface-dark rounded-[28px]">
+      <div className="text-center text-white">
+        <div className="animate-spin w-8 h-8 border-2 border-brand-lime border-t-transparent rounded-full mx-auto mb-4" />
         <p className="text-gray-400 text-sm">Loading 3D Globe...</p>
       </div>
     </div>
@@ -118,11 +118,13 @@ export default function CaseStudiesPage() {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-20 bg-gradient-to-b from-cream-dark to-cream">
+        <section className="pt-32 pb-20 bg-white">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="badge mb-6">Success Stories</span>
-              <h1 className="font-display text-fluid-hero font-bold text-brown mb-6 leading-tight">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+                Success Stories
+              </span>
+              <h1 className="font-display text-fluid-hero font-extrabold text-gray-900 mb-6 leading-tight">
                 Proven Results<br />
                 <span className="text-gradient">Across EMEA</span>
               </h1>
@@ -135,30 +137,32 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Global Footprint */}
-        <section className="section bg-brown text-cream">
+        <section className="section">
           <div className="container">
-            <div className="text-center mb-12">
-              <span className="text-sun text-sm uppercase tracking-widest font-medium">
-                Global Reach
-              </span>
-              <h2 className="font-display text-fluid-4xl font-bold mt-4">
-                1,500+ Placements Worldwide
-              </h2>
-            </div>
+            <div className="bg-surface-dark rounded-[28px] px-8 py-16 lg:px-16">
+              <div className="text-center mb-12">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-lime text-gray-900 text-xs font-bold uppercase tracking-widest rounded-full">
+                  Global Reach
+                </span>
+                <h2 className="font-display text-fluid-4xl font-extrabold text-white mt-4">
+                  1,500+ Placements Worldwide
+                </h2>
+              </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              {globalStats.map((stat) => (
-                <div
-                  key={stat.region}
-                  className="bg-cream/5 rounded-xl p-4 text-center hover:bg-cream/10 transition-colors"
-                >
-                  <span className="text-2xl mb-2 block">{stat.flag}</span>
-                  <div className="font-display text-2xl font-bold text-sun">
-                    {stat.placements}+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                {globalStats.map((stat) => (
+                  <div
+                    key={stat.region}
+                    className="bg-white/5 rounded-xl p-4 text-center hover:bg-white/10 transition-colors"
+                  >
+                    <span className="text-2xl mb-2 block">{stat.flag}</span>
+                    <div className="font-display text-2xl font-extrabold text-brand-lime">
+                      {stat.placements}+
+                    </div>
+                    <div className="text-gray-400 text-sm">{stat.region}</div>
                   </div>
-                  <div className="text-gray-400 text-sm">{stat.region}</div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -176,14 +180,14 @@ export default function CaseStudiesPage() {
                 >
                   {/* Image */}
                   <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+                    <div className="aspect-[4/3] rounded-[28px] overflow-hidden">
                       <img
                         src={study.image}
                         alt={study.title}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="absolute -bottom-4 left-4 bg-cream text-brown px-4 py-2 rounded-full font-bold text-sm shadow-large border border-gray-200">
+                    <div className="absolute -bottom-4 left-4 bg-white text-gray-900 px-4 py-2 rounded-full font-bold text-sm shadow-large border border-gray-200">
                       <MapPin className="w-4 h-4 inline mr-1" />
                       {study.location}
                     </div>
@@ -191,23 +195,23 @@ export default function CaseStudiesPage() {
 
                   {/* Content */}
                   <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                    <span className="text-emerald text-sm uppercase tracking-widest font-medium">
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full">
                       {study.industry}
                     </span>
-                    <h3 className="font-display text-fluid-3xl font-bold text-brown mt-2 mb-4">
+                    <h3 className="font-display text-fluid-3xl font-extrabold text-gray-900 mt-4 mb-4">
                       {study.title}
                     </h3>
                     <p className="text-gray-500 mb-4">
-                      <strong className="text-brown">Client:</strong> {study.client}
+                      <strong className="text-gray-900">Client:</strong> {study.client}
                     </p>
 
                     <div className="mb-6">
-                      <h4 className="font-bold text-brown mb-2">The Challenge</h4>
+                      <h4 className="font-bold text-gray-900 mb-2">The Challenge</h4>
                       <p className="text-gray-500">{study.challenge}</p>
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="font-bold text-brown mb-2">Our Solution</h4>
+                      <h4 className="font-bold text-gray-900 mb-2">Our Solution</h4>
                       <p className="text-gray-500">{study.solution}</p>
                     </div>
 
@@ -216,9 +220,9 @@ export default function CaseStudiesPage() {
                       {study.results.map((result) => (
                         <div
                           key={result.label}
-                          className="bg-cream-dark rounded-xl p-3 text-center"
+                          className="bg-gray-100 rounded-xl p-3 text-center"
                         >
-                          <div className="font-display text-xl font-bold text-emerald">
+                          <div className="font-display text-xl font-extrabold text-brand-violet">
                             {result.value}
                           </div>
                           <div className="text-gray-500 text-xs">{result.label}</div>
@@ -227,9 +231,9 @@ export default function CaseStudiesPage() {
                     </div>
 
                     {/* Testimonial */}
-                    <blockquote className="border-l-4 border-sun pl-4 italic text-gray-500">
+                    <blockquote className="border-l-4 border-brand-lime pl-4 italic text-gray-500">
                       &ldquo;{study.testimonial.quote}&rdquo;
-                      <footer className="text-brown font-medium not-italic mt-2">
+                      <footer className="text-gray-900 font-medium not-italic mt-2">
                         — {study.testimonial.author}
                       </footer>
                     </blockquote>
@@ -241,13 +245,13 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* Interactive WebGL Map */}
-        <section className="section bg-cream-dark">
+        <section className="section">
           <div className="container">
             <div className="text-center mb-12">
-              <span className="text-emerald text-sm uppercase tracking-widest font-medium">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full">
                 Talent Flow
               </span>
-              <h2 className="font-display text-fluid-4xl font-bold text-brown mt-4">
+              <h2 className="font-display text-fluid-4xl font-extrabold text-gray-900 mt-4">
                 India to EMEA Pipeline
               </h2>
               <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
@@ -256,39 +260,44 @@ export default function CaseStudiesPage() {
               </p>
             </div>
 
-            <div className="relative aspect-[2/1] min-h-[500px] bg-brown rounded-3xl overflow-hidden">
+            <div className="relative aspect-[2/1] min-h-[500px] bg-surface-dark rounded-[28px] overflow-hidden">
               <TalentFlowGlobe />
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="section bg-gradient-to-br from-brown via-brown to-terracotta text-cream">
+        <section className="section">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="font-display text-fluid-4xl font-bold mb-6">
-                Ready to Write Your Success Story?
-              </h2>
-              <p className="text-fluid-lg text-cream/80 mb-10">
-                Join 300+ companies who have transformed their hiring with Contact to Hire.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  href="/contact?type=employer"
-                  variant="primary"
-                  size="lg"
-                  icon={<Briefcase className="w-5 h-5" />}
-                >
-                  Start Hiring
-                </Button>
-                <Button
-                  href="/services"
-                  variant="ghost"
-                  size="lg"
-                  className="!text-cream hover:!text-brown hover:bg-cream/10"
-                >
-                  Explore Services
-                </Button>
+            <div className="bg-surface-dark rounded-[28px] px-8 py-16 lg:px-16 text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-lime/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-violet/10 rounded-full blur-3xl" />
+              
+              <div className="relative z-10 max-w-3xl mx-auto">
+                <h2 className="font-display text-fluid-4xl font-extrabold text-white mb-6">
+                  Ready to Write Your Success Story?
+                </h2>
+                <p className="text-fluid-lg text-gray-400 mb-10">
+                  Join 300+ companies who have transformed their hiring with Contact to Hire.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Button
+                    href="/contact?type=employer"
+                    variant="primary"
+                    size="lg"
+                    icon={<Briefcase className="w-5 h-5" />}
+                  >
+                    Start Hiring
+                  </Button>
+                  <Button
+                    href="/services"
+                    variant="ghost"
+                    size="lg"
+                    className="!text-white hover:!text-brand-lime hover:bg-white/10"
+                  >
+                    Explore Services
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
