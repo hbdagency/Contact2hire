@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Clock } from '@/components/ui/Icon'
+import { Clock, X } from '@/components/ui/Icon'
 
 const timeZones = [
   { city: 'Ahmedabad', country: 'India', zone: 'IST', offset: '+5:30', flag: '🇮🇳', region: 'HQ' },
@@ -29,6 +29,12 @@ export default function TimezoneSidebar() {
   }, [])
 
   useEffect(() => {
+    // On touch devices the emulated left-edge hover fires when tapping the
+    // hamburger menu — so only open via the trigger button there.
+    if (window.matchMedia('(pointer: coarse)').matches) {
+      return
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       const threshold = 50 // pixels from left edge
       
@@ -82,7 +88,7 @@ export default function TimezoneSidebar() {
   return (
     <div
       ref={sidebarRef}
-      className={`fixed left-0 top-0 h-full w-72 bg-white/95 backdrop-blur-md shadow-2xl z-50 
+      className={`fixed left-0 top-0 h-full w-72 bg-white/95 backdrop-blur-md shadow-2xl z-[60] 
         transform transition-transform duration-300 ease-in-out border-r border-gray-200
         ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}
       onMouseEnter={() => {
@@ -101,7 +107,14 @@ export default function TimezoneSidebar() {
         {/* Header */}
         <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-200">
           <Clock className="w-5 h-5 text-brand-violet" />
-          <h3 className="font-display text-lg font-bold text-gray-900">Global Time Zones</h3>
+          <h3 className="font-display text-lg font-bold text-gray-900 flex-1">Global Time Zones</h3>
+          <button
+            onClick={() => setIsVisible(false)}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+            aria-label="Close time zones panel"
+          >
+            <X className="w-4 h-4" />
+          </button>
         </div>
 
         {/* Time zones by region */}
@@ -141,19 +154,21 @@ export default function TimezoneSidebar() {
         {/* Footer note */}
         <div className="mt-6 pt-4 border-t border-gray-200">
           <p className="text-xs text-gray-400 text-center">
-            Hover over the left edge of the screen to show this panel
+            Hover the left edge — or tap the clock — to show this panel
           </p>
         </div>
       </div>
 
-      {/* Trigger indicator */}
-      <div 
+      {/* Trigger indicator (clickable — works on touch devices too) */}
+      <button
+        onClick={() => setIsVisible((v) => !v)}
         className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-full
-          bg-surface-dark text-white px-2 py-4 rounded-r-lg shadow-lg
-          transition-opacity duration-300 ${isVisible ? 'opacity-0' : 'opacity-100'}`}
+          bg-surface-dark text-white px-2 py-4 rounded-r-lg shadow-lg cursor-pointer
+          transition-opacity duration-300 ${isVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        aria-label="Show global time zones"
       >
         <Clock className="w-4 h-4" />
-      </div>
+      </button>
     </div>
   )
 }

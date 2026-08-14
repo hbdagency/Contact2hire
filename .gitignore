@@ -14,34 +14,46 @@ out/
 build/
 dist/
 
-# Misc
-.DS_Store
-*.pem
-._*
-*.swp
-*.swo
-
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Local env files
+# Local env files — never commit real secrets
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env*.local
 
 # Vercel
 .vercel
 
 # TypeScript
 *.tsbuildinfo
-next-env.d.ts
 
-# IDE
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS / filesystem artifacts
+.DS_Store
+Thumbs.db
+*~
+._*
+
+# Editor / IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+
+# Certificates
+*.pem
+
+# Tooling caches
+.freebuff/
+.eslintcache
+.turbo/
+
+# Redundant source copy of the logo (web asset lives in public/logo.png)
+/logo.png

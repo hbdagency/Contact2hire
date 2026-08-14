@@ -1,24 +1,24 @@
 import Link from 'next/link'
+import Logo from '@/components/ui/Logo'
+import { ArrowRight } from '@/components/ui/Icon'
 
 const footerLinks = {
   quickLinks: [
     { href: '/', label: 'Home' },
-    { href: '/services', label: 'Services' },
+    { href: '/services', label: 'Service' },
     { href: '/about', label: 'About Us' },
     { href: '/case-studies', label: 'Case Studies' },
     { href: '/insights', label: 'Insights' },
     { href: '/contact', label: 'Contact' },
   ],
   services: [
-    { href: '/services#emea', label: 'EMEA Specialization' },
-    { href: '/services#executive', label: 'Executive Search' },
-    { href: '/services#rpo', label: 'RPO Services' },
-    { href: '/services#curating', label: 'Candidate Curating' },
+    { href: '/services', label: 'Market Research' },
+    { href: '/services', label: 'Executive Search' },
+    { href: '/services', label: 'Branding Strategies' },
   ],
   legal: [
-    { href: '/privacy', label: 'Privacy Policy' },
+    { href: '/privacy', label: 'Privacy & Cookie Policy' },
     { href: '/terms', label: 'Terms of Service' },
-    { href: '/sitemap', label: 'Sitemap' },
   ],
   social: [
     { href: 'https://linkedin.com/company/contacttohire', label: 'LinkedIn', icon: 'linkedin' },
@@ -37,15 +37,24 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6">
-              <span className="font-display text-2xl font-extrabold text-white">
-                Contact<span className="text-brand-lime bg-white/10 px-1 rounded">2</span>Hire
+            <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
+              <Logo className="w-9 h-9" />
+              <span className="font-display text-2xl font-bold text-white">
+                Contact<span className="text-brand-lime">2</span>Hire
               </span>
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Bridging India's finest talent with EMEA opportunities. Your trusted partner for precision hiring across continents.
+              Bridging India's finest talent with EMEA opportunities. Whether you're
+              looking for your next role or your next great hire, we make it happen.
             </p>
-            <div className="flex items-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-brand-lime font-semibold text-sm hover:gap-3 transition-all"
+            >
+              Let's talk hiring
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <div className="mt-6 flex items-center gap-4">
               {footerLinks.social.map((social) => (
                 <a
                   key={social.href}
@@ -77,14 +86,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-display text-lg font-bold mb-6">Quick Links</h4>
+            <h4 className="font-display text-lg font-bold text-brand-lime mb-6">Quick Links</h4>
             <ul className="space-y-3">
               {footerLinks.quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-brand-lime transition-colors"
-                  >
+                <li key={link.href + link.label}>
+                  <Link href={link.href} className="text-gray-400 hover:text-brand-lime transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -92,15 +98,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services - pill buttons like the mockup */}
           <div>
-            <h4 className="font-display text-lg font-bold mb-6">Services</h4>
+            <h4 className="font-display text-lg font-bold text-brand-lime mb-6">Service</h4>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.href}>
+              {footerLinks.services.map((link, i) => (
+                <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-brand-lime transition-colors"
+                    className="inline-flex items-center px-5 py-2 rounded-full border border-white/25 text-sm text-white/90 hover:border-brand-lime hover:text-brand-lime transition-all"
                   >
                     {link.label}
                   </Link>
@@ -111,7 +117,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-display text-lg font-bold mb-6">Contact</h4>
+            <h4 className="font-display text-lg font-bold text-brand-lime mb-6">Contact</h4>
             <address className="not-italic space-y-4">
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 mt-1 text-brand-lime flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,9 +125,9 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  D-13, Dhusali Society, Talavadi,<br />
-                  Nr-Hansol police chowky, Airport Road,<br />
-                  Ahmedabad – 382475, Gujarat – INDIA
+                  B/105, Gokul Pratham,<br />
+                  Nr. Tapovan Circle, Chandkheda,<br />
+                  Ahmedabad – 382424, Gujarat – INDIA
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -149,12 +155,12 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            © {currentYear} Contact to Hire. All rights reserved.
+            Contact2Hire © {currentYear}
           </p>
           <div className="flex items-center gap-6">
             {footerLinks.legal.map((link) => (
               <Link
-                key={link.href}
+                key={link.href + link.label}
                 href={link.href}
                 className="text-gray-500 text-sm hover:text-brand-lime transition-colors"
               >

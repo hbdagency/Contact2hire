@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 interface ButtonProps {
   children: ReactNode
   href?: string
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
   size?: 'sm' | 'md' | 'lg'
   className?: string
   onClick?: () => void
@@ -30,6 +30,7 @@ export default function Button({
     primary: 'bg-brand-violet text-white hover:bg-brand-violet-dark rounded-full relative overflow-hidden group',
     secondary: 'text-gray-900 border-b-2 border-gray-900 hover:text-brand-violet hover:border-brand-violet pb-1',
     ghost: 'text-gray-900 hover:text-brand-violet hover:bg-gray-100 rounded-lg px-4 py-2',
+    outline: 'border border-gray-900 text-gray-900 hover:border-brand-violet hover:text-brand-violet rounded-full bg-transparent',
   }
   
   const sizes = {

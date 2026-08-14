@@ -3,6 +3,7 @@ import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { MapPin, Users, Building2, TrendingUp, ArrowRight, Briefcase } from '@/components/ui/Icon'
 import dynamic from 'next/dynamic'
+import { caseStudies } from '@/data/caseStudies'
 
 // Dynamically import the 3D component to avoid SSR issues
 const TalentFlowGlobe = dynamic(() => import('@/components/3d/TalentFlowGlobe'), {
@@ -16,89 +17,6 @@ const TalentFlowGlobe = dynamic(() => import('@/components/3d/TalentFlowGlobe'),
     </div>
   ),
 })
-
-const caseStudies = [
-  {
-    id: 'london-tech',
-    title: 'London Tech Scale-Up',
-    client: 'Series B Fintech Startup',
-    location: 'London, UK',
-    industry: 'Technology',
-    challenge: 'Rapidly scale engineering team from 15 to 65 within 8 months while maintaining quality and cultural fit.',
-    solution: 'Deployed dedicated RPO team with technical assessment capabilities. Created talent pipeline from Indian tech hubs.',
-    results: [
-      { label: 'Roles Filled', value: '50+' },
-      { label: 'Time to Fill', value: '21 days' },
-      { label: 'Retention Rate', value: '94%' },
-      { label: 'Cost Savings', value: '40%' },
-    ],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-    testimonial: {
-      quote: 'Contact to Hire transformed our hiring process. Their understanding of both markets made scaling seamless.',
-      author: 'CTO, London Fintech',
-    },
-  },
-  {
-    id: 'dubai-conglomerate',
-    title: 'Dubai Conglomerate',
-    client: 'Multi-Billion Dollar Holding',
-    location: 'Dubai, UAE',
-    industry: 'Conglomerate',
-    challenge: 'Build entire leadership team for new healthcare division from scratch across 3 countries.',
-    solution: 'Executive search with global reach. Leveraged Indian healthcare leadership talent pool with EMEA experience.',
-    results: [
-      { label: 'Executives Placed', value: '12' },
-      { label: 'Countries', value: '3' },
-      { label: 'Avg. Salary', value: '$180K' },
-      { label: 'Time to Productivity', value: '60 days' },
-    ],
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
-    testimonial: {
-      quote: 'Their executive search capabilities are world-class. They found leaders who truly understand our vision.',
-      author: 'CEO, Dubai Healthcare Division',
-    },
-  },
-  {
-    id: 'frankfurt-finance',
-    title: 'Frankfurt Financial Services',
-    client: 'Investment Bank',
-    location: 'Frankfurt, Germany',
-    industry: 'Finance',
-    challenge: 'Build quantitative analytics team with expertise in AI/ML for risk modeling.',
-    solution: 'Targeted search in Indian IITs and top engineering schools. Provided relocation and cultural integration support.',
-    results: [
-      { label: 'Quants Placed', value: '25' },
-      { label: 'PhD Holders', value: '80%' },
-      { label: 'Visa Success', value: '100%' },
-      { label: 'Avg. Tenure', value: '3+ years' },
-    ],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-    testimonial: {
-      quote: 'The quality of candidates exceeded our expectations. Their technical vetting process is exceptional.',
-      author: 'Head of Risk, Frankfurt Bank',
-    },
-  },
-  {
-    id: 'riyadh-healthcare',
-    title: 'Riyadh Healthcare Network',
-    client: 'Private Hospital Chain',
-    location: 'Riyadh, Saudi Arabia',
-    industry: 'Healthcare',
-    challenge: 'Staff new 200-bed hospital with specialized medical professionals within 6 months.',
-    solution: 'Comprehensive recruitment campaign targeting Indian medical professionals with Middle East experience.',
-    results: [
-      { label: 'Medical Staff', value: '85' },
-      { label: 'Specialties', value: '15' },
-      { label: 'DHA Licensed', value: '100%' },
-      { label: 'On-Time Delivery', value: 'Yes' },
-    ],
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
-    testimonial: {
-      quote: 'They delivered when others couldn\'t. Their healthcare recruitment expertise is unmatched.',
-      author: 'HR Director, Riyadh Hospital',
-    },
-  },
-]
 
 const globalStats = [
   { region: 'United Kingdom', placements: 320, flag: '🇬🇧' },
@@ -121,12 +39,15 @@ export default function CaseStudiesPage() {
         <section className="pt-32 pb-20 bg-white">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+              <span className="text-brand-violet text-sm font-bold uppercase tracking-[0.2em] mb-6">
                 Success Stories
               </span>
-              <h1 className="font-display text-fluid-hero font-extrabold text-gray-900 mb-6 leading-tight">
+              <h1 className="font-display text-[clamp(2.6rem,6vw,4.8rem)] font-bold text-gray-900 mb-6 leading-[1.04] tracking-[-0.03em]">
                 Proven Results<br />
-                <span className="text-gradient">Across EMEA</span>
+                <span className="relative inline-block">
+                  <span className="relative z-10">Across EMEA</span>
+                  <span className="absolute inset-x-0 bottom-1 h-3 md:h-4 bg-brand-lime -z-0" />
+                </span>
               </h1>
               <p className="text-fluid-xl text-gray-500 max-w-2xl mx-auto">
                 Real stories of how we've helped companies build world-class teams 
@@ -237,6 +158,17 @@ export default function CaseStudiesPage() {
                         — {study.testimonial.author}
                       </footer>
                     </blockquote>
+
+                    {/* Full case study */}
+                    <Button
+                      href={`/case-studies/${study.id}`}
+                      variant="outline"
+                      size="md"
+                      icon={<ArrowRight className="w-4 h-4" />}
+                      className="mt-6"
+                    >
+                      Read Full Case Study
+                    </Button>
                   </div>
                 </div>
               ))}

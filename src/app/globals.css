@@ -7,16 +7,18 @@
    ======================================== */
 
 :root {
-  /* Brand Accents */
-  --accent-lime: #D2FF00;
-  --accent-lime-muted: #C4EE12;
-  --accent-violet: #6332F6;
-  --accent-violet-dark: #4F24CC;
+  /* Brand Accents (derived from the Libertans mockups) */
+  --accent-lime: #C2E84A;
+  --accent-lime-bright: #D9F28A;
+  --accent-lime-muted: #A9CE33;
+  --accent-violet: #5923E2;
+  --accent-violet-dark: #4717C4;
+  --accent-lavender: #E7E2F9;
 
   /* Surfaces */
-  --surface-dark: #0E0F11;
-  --surface-dark-card: #1A1B1E;
-  --surface-light: #F8F9FA;
+  --surface-dark: #111111;
+  --surface-dark-card: #1A1A1A;
+  --surface-light: #FFFFFF;
   --surface-white: #FFFFFF;
 
   /* Borders */
@@ -31,24 +33,24 @@
   --text-muted-logos: #8A8F98;
 
   /* Legacy aliases for backward compatibility */
-  --color-cream: #F8F9FA;
-  --color-cream-dark: #F0F1F3;
-  --color-charcoal: #0E0F11;
-  --color-charcoal-light: #1A1B1E;
-  --color-coral: #6332F6;
-  --color-coral-dark: #4F24CC;
-  --color-sun: #D2FF00;
-  --color-terracotta: #4F24CC;
-  --color-sky: #D2FF00;
-  --color-sky-dark: #C4EE12;
-  --color-mint: #6332F6;
-  --color-mint-dark: #4F24CC;
-  --color-emerald: #D2FF00;
-  --color-emerald-light: #C4EE12;
-  --color-royal: #6332F6;
-  --color-royal-light: #4F24CC;
-  --color-brown: #0E0F11;
-  --color-brown-light: #1A1B1E;
+  --color-cream: #FFFFFF;
+  --color-cream-dark: #F3F3F3;
+  --color-charcoal: #111111;
+  --color-charcoal-light: #1A1A1A;
+  --color-coral: #5923E2;
+  --color-coral-dark: #4717C4;
+  --color-sun: #C2E84A;
+  --color-terracotta: #4717C4;
+  --color-sky: #C2E84A;
+  --color-sky-dark: #A9CE33;
+  --color-mint: #5923E2;
+  --color-mint-dark: #4717C4;
+  --color-emerald: #C2E84A;
+  --color-emerald-light: #A9CE33;
+  --color-royal: #5923E2;
+  --color-royal-light: #4717C4;
+  --color-brown: #111111;
+  --color-brown-light: #1A1A1A;
   --color-sand: #E8DCC4;
   --color-white: #FFFFFF;
   --color-gray-100: #F8F9FA;
@@ -63,7 +65,7 @@
   --color-warning: #D4A017;
 
   /* Typography */
-  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
   /* Font Sizes - Fluid Typography */
@@ -325,6 +327,33 @@
   .btn-primary span {
     position: relative;
     z-index: 1;
+  }
+
+  /* Button - Outline Pill */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    color: var(--text-primary-dark);
+    font-weight: 600;
+    border: 1px solid var(--text-primary-dark);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent-violet);
+    color: var(--accent-violet);
+  }
+
+  .btn-outline svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .btn-outline:hover svg {
+    transform: translateX(4px);
   }
 
   /* Button - Secondary */

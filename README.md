@@ -113,9 +113,9 @@ npm start
 ## 📝 Company Information
 
 **Contact to Hire**  
-D-13, Dhusali Society, Talavadi  
-Nr-Hansol police chowky, Airport Road  
-Ahmedabad – 382475, Gujarat – INDIA  
+B/105, Gokul Pratham  
+Nr. Tapovan Circle, Chandkheda  
+Ahmedabad – 382424, Gujarat – INDIA  
 
 - **Phone:** +91-9601570167
 - **Email:** info@contacttohire.in

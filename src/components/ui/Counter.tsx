@@ -67,7 +67,7 @@ export default function Counter({
 
   return (
     <div ref={counterRef} className={`text-center ${className}`}>
-      <div className="font-display text-fluid-5xl font-extrabold text-brand-lime leading-none">
+      <div className="font-display text-[clamp(1.9rem,11vw,4.5rem)] font-extrabold text-brand-lime leading-none whitespace-nowrap">
         {prefix}
         <span className="counter">{count.toLocaleString()}</span>
         {suffix}

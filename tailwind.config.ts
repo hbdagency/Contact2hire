@@ -9,18 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand Accents
+        // Brand Accents (derived from the Libertans mockups)
         brand: {
-          lime: '#D2FF00',
-          'lime-muted': '#C4EE12',
-          violet: '#6332F6',
-          'violet-dark': '#4F24CC',
+          lime: '#C2E84A',
+          'lime-bright': '#D9F28A',
+          'lime-muted': '#A9CE33',
+          violet: '#5923E2',
+          'violet-dark': '#4717C4',
+          lavender: '#E7E2F9',
         },
         // Surfaces
         surface: {
-          dark: '#0E0F11',
-          'dark-card': '#1A1B1E',
-          light: '#F8F9FA',
+          dark: '#111111',
+          'dark-card': '#1A1A1A',
+          light: '#FFFFFF',
           white: '#FFFFFF',
         },
         // Borders
@@ -29,24 +31,24 @@ const config: Config = {
           light: '#E5E7EB',
         },
         // Legacy aliases for backward compatibility
-        coral: '#6332F6',
-        'coral-dark': '#4F24CC',
-        charcoal: '#0E0F11',
-        'charcoal-light': '#1A1B1E',
-        cream: '#F8F9FA',
-        'cream-dark': '#F0F1F3',
-        sun: '#D2FF00',
-        terracotta: '#4F24CC',
-        sky: '#D2FF00',
-        'sky-dark': '#C4EE12',
-        mint: '#6332F6',
-        'mint-dark': '#4F24CC',
-        emerald: '#D2FF00',
-        'emerald-light': '#C4EE12',
-        royal: '#6332F6',
-        'royal-light': '#4F24CC',
-        brown: '#0E0F11',
-        'brown-light': '#1A1B1E',
+        coral: '#5923E2',
+        'coral-dark': '#4717C4',
+        charcoal: '#111111',
+        'charcoal-light': '#1A1A1A',
+        cream: '#FFFFFF',
+        'cream-dark': '#F3F3F3',
+        sun: '#C2E84A',
+        terracotta: '#4717C4',
+        sky: '#C2E84A',
+        'sky-dark': '#A9CE33',
+        mint: '#5923E2',
+        'mint-dark': '#4717C4',
+        emerald: '#C2E84A',
+        'emerald-light': '#A9CE33',
+        royal: '#5923E2',
+        'royal-light': '#4717C4',
+        brown: '#111111',
+        'brown-light': '#1A1A1A',
         sand: '#E8DCC4',
         // Neutrals
         gray: {
@@ -62,7 +64,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Plus Jakarta Sans', 'sans-serif'],
+        display: ['var(--font-display)', 'Space Grotesk', 'sans-serif'],
         body: ['var(--font-body)', 'Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {

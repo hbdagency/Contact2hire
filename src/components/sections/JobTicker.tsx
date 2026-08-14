@@ -37,10 +37,10 @@ export default function JobTicker() {
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface-dark to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface-dark to-transparent z-10" />
       
-      {/* Ticker header */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2 bg-brand-lime text-gray-900 px-4 py-2 rounded-full">
+      {/* Ticker header — icon only on mobile, icon + label on larger screens */}
+      <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 flex items-center gap-2 bg-brand-lime text-gray-900 px-3 sm:px-4 py-2 rounded-full">
         <Briefcase className="w-4 h-4" />
-        <span className="text-sm font-bold whitespace-nowrap">Current Openings</span>
+        <span className="hidden sm:inline text-sm font-bold whitespace-nowrap">Current Openings</span>
       </div>
       
       {/* Scrolling ticker */}
@@ -49,7 +49,7 @@ export default function JobTicker() {
         className={`flex gap-6 animate-ticker ${isPaused ? 'animation-paused' : ''}`}
         style={{ 
           animationPlayState: isPaused ? 'paused' : 'running',
-          paddingLeft: '200px'
+          paddingLeft: 'clamp(64px, 22vw, 200px)'
         }}
       >
         {/* Duplicate items for seamless loop */}

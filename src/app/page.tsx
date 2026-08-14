@@ -3,7 +3,9 @@ import Footer from '@/components/layout/Footer'
 import Hero from '@/components/sections/Hero'
 import Metrics from '@/components/sections/Metrics'
 import SectorGrid from '@/components/sections/SectorGrid'
-import ClientMarquee from '@/components/sections/ClientMarquee'
+import RecentWork from '@/components/sections/RecentWork'
+import ClientLogos from '@/components/sections/ClientLogos'
+import CtaCard from '@/components/sections/CtaCard'
 import Button from '@/components/ui/Button'
 import { ArrowRight, Calendar, Clock } from '@/components/ui/Icon'
 import dynamic from 'next/dynamic'
@@ -57,15 +59,15 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      
+
       <main>
-        {/* Hero Section */}
+        {/* Hero — mockup 1 (includes the current openings ticker strip at its bottom) */}
         <Hero />
-        
-        {/* Metrics Section */}
+
+        {/* Metrics */}
         <Metrics />
-        
-        {/* Narrative Section */}
+
+        {/* Narrative — our philosophy */}
         <section className="section">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
@@ -80,9 +82,11 @@ export default function Home() {
                 </span> and build teams.
               </h2>
               <p className="text-fluid-lg text-gray-500 leading-relaxed mb-8">
-                For over 5 years, Contact to Hire has been the bridge between India's 
-                exceptional talent pool and EMEA's most ambitious companies. Our precision 
-                hiring approach ensures the perfect match—every time.
+                For over 5 years, Contact to Hire has been the bridge between India's
+                exceptional talent pool and EMEA's most ambitious companies. Whether
+                you're a professional chasing your next big role or a business
+                building your dream team, our precision hiring approach gets you
+                there — every time.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button href="/about" variant="primary" size="md">
@@ -95,7 +99,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
+        {/* Featured Sectors */}
+        <SectorGrid />
+
+        {/* Recent work — mockup 2 */}
+        <RecentWork />
+
         {/* 3D Globe Section */}
         <section className="section">
           <div className="container">
@@ -115,10 +125,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
-        {/* Featured Sectors */}
-        <SectorGrid />
-        
+
         {/* Featured Articles */}
         <section className="section bg-white">
           <div className="container">
@@ -128,7 +135,7 @@ export default function Home() {
                   Latest Insights
                 </span>
                 <h2 className="font-display text-fluid-4xl font-extrabold text-gray-900 mt-4">
-                  Featured Articles
+                  Career & Hiring Guides
                 </h2>
               </div>
               <Button href="/insights" variant="secondary" size="md" icon={<ArrowRight className="w-4 h-4" />}>
@@ -182,53 +189,14 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
-        {/* Client Logos Marquee */}
-        <ClientMarquee />
-        
-        {/* CTA Section */}
-        <section className="section">
-          <div className="container">
-            <div className="bg-surface-dark rounded-[28px] px-8 py-16 lg:px-16 text-center relative overflow-hidden">
-              {/* Decorative accents */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-lime/5 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-violet/10 rounded-full blur-3xl" />
 
-              <div className="relative z-10 max-w-3xl mx-auto">
-                <h2 className="font-display text-fluid-4xl font-extrabold text-white mb-6">
-                  Ready to Build Your <span className="relative inline-block">
-                    <span className="relative z-10">Dream Team?</span>
-                    <span className="absolute inset-x-0 bottom-1 h-4 bg-brand-lime -z-0" />
-                  </span>
-                </h2>
-                <p className="text-fluid-lg text-gray-400 mb-10">
-                  Whether you're scaling your team or seeking your next career move, 
-                  we're here to make it happen.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Button 
-                    href="/contact?type=employer" 
-                    variant="primary" 
-                    size="lg"
-                    icon={<ArrowRight className="w-5 h-5" />}
-                  >
-                    Start Hiring Today
-                  </Button>
-                  <Button 
-                    href="/contact?type=candidate" 
-                    variant="ghost" 
-                    size="lg"
-                    className="!text-white hover:!text-brand-lime hover:bg-white/10"
-                  >
-                    Explore Opportunities
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Client logo wall — mockup 3 (top) */}
+        <ClientLogos />
+
+        {/* Dark CTA card — mockup 3 (bottom) */}
+        <CtaCard />
       </main>
-      
+
       <Footer />
     </>
   )

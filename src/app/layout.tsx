@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
-import './globals.css'
+import { Space_Grotesk, Inter } from 'next/font/google'
+import { SITE_URL } from '@/lib/site'
 import TimezoneSidebar from '@/components/layout/TimezoneSidebar'
+import FloatingActionBadge from '@/components/ui/FloatingActionBadge'
+import './globals.css'
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
@@ -16,7 +18,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://contacttohire.in'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Contact to Hire | India-EMEA Recruitment Agency',
     template: '%s | Contact to Hire',
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://contacttohire.in',
+    url: SITE_URL,
     siteName: 'Contact to Hire',
     title: 'Contact to Hire | India-EMEA Recruitment Agency',
     description: "Bridging India's finest talent with EMEA opportunities. 1500+ placements, 300+ clients.",
@@ -64,9 +66,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // Add real verification tokens here after claiming the site in Search Console
+  // verification: {
+  //   google: '...',
+  //   bing: '...',
+  // },
 }
 
 // JSON-LD Schema
@@ -75,16 +79,16 @@ const jsonLd = {
   '@type': 'EmploymentAgency',
   name: 'Contact to Hire',
   alternateName: 'Contact2Hire',
-  url: 'https://contacttohire.in',
-  logo: 'https://contacttohire.in/logo.png',
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
   description: "Bridging India's finest talent with EMEA opportunities. Executive search and RPO services.",
   foundingDate: '2019',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'D-13, Dhusali Society, Talavadi, Nr-Hansol police chowky, Airport Road',
+    streetAddress: 'B/105, Gokul Pratham, Nr. Tapovan Circle, Chandkheda',
     addressLocality: 'Ahmedabad',
     addressRegion: 'Gujarat',
-    postalCode: '382475',
+    postalCode: '382424',
     addressCountry: 'IN',
   },
   contactPoint: {
@@ -129,7 +133,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -137,11 +141,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-surface-light text-gray-900 antialiased">
-        {/* Timezone Sidebar - appears on hover from left */}
-        <TimezoneSidebar />
-        
         {/* Main content */}
         {children}
+        {/* World time sidebar (hover/tap the left edge clock) */}
+        <TimezoneSidebar />
+        {/* Floating rotating badge — label/action adapts to the section in view */}
+        <FloatingActionBadge />
       </body>
     </html>
   )

@@ -117,9 +117,9 @@ export default function PrivacyPage() {
                 </p>
                 <div className="bg-cream-dark rounded-xl p-6 mt-4">
                   <p className="font-bold text-brown">Contact to Hire</p>
-                  <p>D-13, Dhusali Society, Talavadi</p>
-                  <p>Nr-Hansol police chowky, Airport Road</p>
-                  <p>Ahmedabad – 382475, Gujarat – INDIA</p>
+                  <p>B/105, Gokul Pratham</p>
+                  <p>Nr. Tapovan Circle, Chandkheda</p>
+                  <p>Ahmedabad – 382424, Gujarat – INDIA</p>
                   <p className="mt-2">Email: info@contacttohire.in</p>
                   <p>Phone: +91-9601570167</p>
                 </div>
