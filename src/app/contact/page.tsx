@@ -60,6 +60,8 @@ export default function ContactPage() {
     phone: '',
     company: '',
     message: '',
+    // Honeypot — hidden from humans, auto-filled by bots (checked server-side).
+    website: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitState, setSubmitState] = useState<'idle' | 'success' | 'error'>('idle')
@@ -107,7 +109,7 @@ export default function ContactPage() {
 
       if (res.ok && data.ok) {
         setSubmitState('success')
-        setFormData({ name: '', email: '', phone: '', company: '', message: '' })
+        setFormData({ name: '', email: '', phone: '', company: '', message: '', website: '' })
       } else {
         setSubmitState('error')
         setSubmitError(
@@ -220,15 +222,33 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Honeypot — off-screen, invisible to humans; bots auto-fill it */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden"
+                    >
+                      <label htmlFor="website">Website</label>
+                      <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        value={formData.website}
+                        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
                     {submitState === 'error' && (
-                      <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                        <p className="text-sm text-red-600">
-                          {submitError}{' '}
-                          <a href="mailto:info@contacttohire.in" className="underline font-semibold">
-                            Email us directly
-                          </a>
-                        </p>
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+                        <div className="flex items-start gap-3">
+                          <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                          <p className="text-sm text-red-600">
+                            {submitError}{' '}
+                            <a href="mailto:info@contacttohire.in" className="underline font-semibold">
+                              Email us directly
+                            </a>
+                          </p>
+                        </div>
                       </div>
                     )}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -65,33 +65,6 @@ const values = [
   },
 ]
 
-const team = [
-  {
-    name: 'Priya Sharma',
-    role: 'Founder & CEO',
-    bio: '15+ years in international recruitment with a passion for connecting talent with opportunity.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-  },
-  {
-    name: 'Rajesh Patel',
-    role: 'Head of EMEA Operations',
-    bio: 'Expert in European labor markets with deep connections across UK and Germany.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
-  },
-  {
-    name: 'Aisha Khan',
-    role: 'Executive Search Lead',
-    bio: 'Specializes in C-suite placements with a track record of placing 50+ executives.',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-  },
-  {
-    name: 'Vikram Singh',
-    role: 'RPO Director',
-    bio: 'Leads our enterprise RPO solutions, managing teams of 20+ recruiters.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-  },
-]
-
 export default function AboutPage() {
   return (
     <>
@@ -253,53 +226,6 @@ export default function AboutPage() {
                   </div>
                 )
               })}
-            </div>
-          </div>
-        </section>
-
-        {/* Team Section */}
-        <section className="section bg-white">
-          <div className="container">
-            <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-violet/10 text-brand-violet text-xs font-bold uppercase tracking-widest rounded-full">
-                The People Behind the Placements
-              </span>
-              <h2 className="font-display text-fluid-4xl font-extrabold text-gray-900 mt-4">
-                Meet the Curators
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {team.map((member) => (
-                <div
-                  key={member.name}
-                  className="group relative overflow-hidden rounded-[20px] bg-white border border-gray-200"
-                >
-                  {/* Image */}
-                  <div className="aspect-[3/4] relative overflow-hidden">
-                    <img 
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-surface-dark/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <p className="text-white text-sm text-center px-4">
-                        {member.bio}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="p-6 text-center">
-                    <h3 className="font-display text-lg font-extrabold text-gray-900">
-                      {member.name}
-                    </h3>
-                    <p className="text-brand-violet text-sm font-medium">
-                      {member.role}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
